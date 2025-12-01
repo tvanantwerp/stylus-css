@@ -4,19 +4,16 @@
 @namespace      tvanantwerp
 @author         Tom VanAntwerp
 @version        1.0.0
-@homepageURL    https://github.com/tvanantwerp/stylus-css/
+@homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
 @preprocessor   stylus
 ==/UserStyle== */
-@-moz-document url-prefix("https://alexandria.na5.iiivega.com") {
-    /* ==========================================================================
-   Alexandria Library Catalog - Dark Mode for Stylus
-   Target: alexlibraryva.org (and similar BiblioCommons-based catalogs)
-   ========================================================================== */
+@-moz-document url-prefix("https://alexandria.na5.iiivega.com")
+{
     /* --------------------------------------------------------------------------
-   CSS Custom Properties (for easy customization)
-   -------------------------------------------------------------------------- */
+    CSS Custom Properties (for easy customization)
+    -------------------------------------------------------------------------- */
     :root {
         --dark-bg-primary: #1a1a2e;
         --dark-bg-secondary: #16213e;
@@ -47,16 +44,24 @@
         --mdc-theme-surface: var(--dark-bg-card) !important;
         --mdc-theme-on-surface: var(--dark-text-primary) !important;
         --mdc-theme-background: var(--dark-bg-primary) !important;
-        --mdc-theme-text-primary-on-background: var(--dark-text-primary) !important;
-        --mdc-theme-text-secondary-on-background: var(--dark-text-secondary) !important;
+        --mdc-theme-text-primary-on-background: var(
+            --dark-text-primary
+        ) !important;
+        --mdc-theme-text-secondary-on-background: var(
+            --dark-text-secondary
+        ) !important;
         --mdc-theme-text-hint-on-background: var(--dark-text-muted) !important;
-        --mdc-theme-text-disabled-on-background: var(--dark-text-muted) !important;
-        --mdc-theme-text-icon-on-background: var(--dark-text-secondary) !important;
+        --mdc-theme-text-disabled-on-background: var(
+            --dark-text-muted
+        ) !important;
+        --mdc-theme-text-icon-on-background: var(
+            --dark-text-secondary
+        ) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Base / Global
-   -------------------------------------------------------------------------- */
+    Base / Global
+    -------------------------------------------------------------------------- */
     html,
     body {
         background-color: var(--dark-bg-primary) !important;
@@ -64,8 +69,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Links
-   -------------------------------------------------------------------------- */
+    Links
+    -------------------------------------------------------------------------- */
     a {
         color: var(--dark-link-color) !important;
     }
@@ -88,8 +93,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Header / Navigation
-   -------------------------------------------------------------------------- */
+    Header / Navigation
+    -------------------------------------------------------------------------- */
     header,
     .header,
     nav,
@@ -125,8 +130,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Cards and Content Containers
-   -------------------------------------------------------------------------- */
+    Cards and Content Containers
+    -------------------------------------------------------------------------- */
     .card,
     .card-body,
     .card-header,
@@ -166,8 +171,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Text Colors
-   -------------------------------------------------------------------------- */
+    Text Colors
+    -------------------------------------------------------------------------- */
     h1,
     h2,
     h3,
@@ -212,8 +217,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Buttons
-   -------------------------------------------------------------------------- */
+    Buttons
+    -------------------------------------------------------------------------- */
     /* Primary / Flint buttons */
     .btn-primary,
     .btn-flint,
@@ -267,8 +272,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Forms and Inputs
-   -------------------------------------------------------------------------- */
+    Forms and Inputs
+    -------------------------------------------------------------------------- */
     input,
     textarea,
     select,
@@ -305,8 +310,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Tabs
-   -------------------------------------------------------------------------- */
+    Tabs
+    -------------------------------------------------------------------------- */
     .nav-tabs,
     .nav-pills,
     [class*="tab-list"],
@@ -340,8 +345,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Tables
-   -------------------------------------------------------------------------- */
+    Tables
+    -------------------------------------------------------------------------- */
     table,
     .table {
         color: var(--dark-text-primary) !important;
@@ -366,8 +371,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Modals and Dialogs
-   -------------------------------------------------------------------------- */
+    Modals and Dialogs
+    -------------------------------------------------------------------------- */
     .modal-content,
     .modal-header,
     .modal-body,
@@ -385,8 +390,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Dropdowns
-   -------------------------------------------------------------------------- */
+    Dropdowns
+    -------------------------------------------------------------------------- */
     .dropdown-menu,
     [class*="dropdown-list"],
     [class*="menu-dropdown"] {
@@ -411,8 +416,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   List Groups
-   -------------------------------------------------------------------------- */
+    List Groups
+    -------------------------------------------------------------------------- */
     .list-group-item,
     [class*="list-item"] {
         background-color: var(--dark-bg-card) !important;
@@ -431,8 +436,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Badges and Labels
-   -------------------------------------------------------------------------- */
+    Badges and Labels
+    -------------------------------------------------------------------------- */
     .badge,
     [class*="badge"],
     [class*="label"],
@@ -448,8 +453,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Alerts / Status Colors
-   -------------------------------------------------------------------------- */
+    Alerts / Status Colors
+    -------------------------------------------------------------------------- */
     /* Success (available items) */
     .text-success,
     .alert-success,
@@ -503,8 +508,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Borders
-   -------------------------------------------------------------------------- */
+    Borders
+    -------------------------------------------------------------------------- */
     .border,
     .border-top,
     .border-bottom,
@@ -519,8 +524,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Background Utilities
-   -------------------------------------------------------------------------- */
+    Background Utilities
+    -------------------------------------------------------------------------- */
     .bg-white {
         background-color: var(--dark-bg-card) !important;
     }
@@ -534,8 +539,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Tooltips
-   -------------------------------------------------------------------------- */
+    Tooltips
+    -------------------------------------------------------------------------- */
     .tippy-box,
     .tooltip,
     [class*="tooltip"] {
@@ -548,8 +553,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Scrollbar (Webkit browsers)
-   -------------------------------------------------------------------------- */
+    Scrollbar (Webkit browsers)
+    -------------------------------------------------------------------------- */
     ::-webkit-scrollbar {
         width: 12px;
         height: 12px;
@@ -569,8 +574,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Library-Specific Elements (BiblioCommons / Alexandria)
-   -------------------------------------------------------------------------- */
+    Library-Specific Elements (BiblioCommons / Alexandria)
+    -------------------------------------------------------------------------- */
     /* Book cover containers */
     [class*="cover-image"],
     [class*="book-cover"],
@@ -618,8 +623,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   SVG Icons (invert for visibility)
-   -------------------------------------------------------------------------- */
+    SVG Icons (invert for visibility)
+    -------------------------------------------------------------------------- */
     svg:not([class*="logo"]):not([class*="brand"]) {
         filter: brightness(0.9) invert(0.1);
     }
@@ -641,15 +646,17 @@
     }
 
     /* --------------------------------------------------------------------------
-   Image Adjustments (optional - slightly dim bright images)
-   -------------------------------------------------------------------------- */
-    img:not([class*="logo"]):not([class*="brand"]):not([class*="cover"]):not([class*="avatar"]) {
+    Image Adjustments (optional - slightly dim bright images)
+    -------------------------------------------------------------------------- */
+    img:not([class*="logo"]):not([class*="brand"]):not([class*="cover"]):not(
+            [class*="avatar"]
+        ) {
         opacity: 0.92;
     }
 
     /* --------------------------------------------------------------------------
-   Focus States (accessibility)
-   -------------------------------------------------------------------------- */
+    Focus States (accessibility)
+    -------------------------------------------------------------------------- */
     *:focus {
         outline-color: var(--dark-brand-flint) !important;
     }
@@ -660,18 +667,22 @@
     }
 
     /* ==========================================================================
-   ANGULAR MATERIAL / MDC COMPONENTS
-   ========================================================================== */
+    ANGULAR MATERIAL / MDC COMPONENTS
+    ========================================================================== */
     /* --------------------------------------------------------------------------
-   Mat Dialog / Modal
-   -------------------------------------------------------------------------- */
+    Mat Dialog / Modal
+    -------------------------------------------------------------------------- */
     .mat-mdc-dialog-container,
     .mat-dialog-container,
     .cdk-dialog-container {
         --mdc-dialog-container-color: var(--dark-bg-card) !important;
-        --mdc-dialog-with-divider-divider-color: var(--dark-border-color) !important;
+        --mdc-dialog-with-divider-divider-color: var(
+            --dark-border-color
+        ) !important;
         --mdc-dialog-subhead-color: var(--dark-text-primary) !important;
-        --mdc-dialog-supporting-text-color: var(--dark-text-secondary) !important;
+        --mdc-dialog-supporting-text-color: var(
+            --dark-text-secondary
+        ) !important;
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
     }
@@ -682,8 +693,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Menu
-   -------------------------------------------------------------------------- */
+    Mat Menu
+    -------------------------------------------------------------------------- */
     .mat-mdc-menu-panel,
     .mat-menu-panel,
     .mdc-menu-surface {
@@ -709,8 +720,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Card
-   -------------------------------------------------------------------------- */
+    Mat Card
+    -------------------------------------------------------------------------- */
     .mat-mdc-card,
     .mat-card {
         --mdc-elevated-card-container-color: var(--dark-bg-card) !important;
@@ -725,20 +736,30 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Expansion Panel
-   -------------------------------------------------------------------------- */
+    Mat Expansion Panel
+    -------------------------------------------------------------------------- */
     .mat-expansion-panel {
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
     }
 
-    .mat-expansion-panel:not([class*=mat-elevation-z]) {
-        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.4), 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.2) !important;
+    .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+        box-shadow:
+            0 3px 1px -2px rgba(0, 0, 0, 0.4),
+            0 2px 2px rgba(0, 0, 0, 0.3),
+            0 1px 5px rgba(0, 0, 0, 0.2) !important;
     }
 
-    .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]),
-    .mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]),
-    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+    .mat-expansion-panel
+        .mat-expansion-panel-header.cdk-keyboard-focused:not(
+            [aria-disabled="true"]
+        ),
+    .mat-expansion-panel
+        .mat-expansion-panel-header.cdk-program-focused:not(
+            [aria-disabled="true"]
+        ),
+    .mat-expansion-panel:not(.mat-expanded)
+        .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
         background-color: var(--dark-bg-hover) !important;
     }
 
@@ -752,19 +773,33 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat List
-   -------------------------------------------------------------------------- */
+    Mat List
+    -------------------------------------------------------------------------- */
     .mat-mdc-list-base,
     .mat-list-base,
     .mat-nav-list,
     .mat-selection-list {
-        --mdc-list-list-item-label-text-color: var(--dark-text-primary) !important;
-        --mdc-list-list-item-supporting-text-color: var(--dark-text-secondary) !important;
-        --mdc-list-list-item-leading-icon-color: var(--dark-text-muted) !important;
-        --mdc-list-list-item-trailing-supporting-text-color: var(--dark-text-muted) !important;
-        --mdc-list-list-item-trailing-icon-color: var(--dark-text-muted) !important;
-        --mdc-list-list-item-hover-state-layer-color: var(--dark-bg-hover) !important;
-        --mdc-list-list-item-focus-state-layer-color: var(--dark-bg-hover) !important;
+        --mdc-list-list-item-label-text-color: var(
+            --dark-text-primary
+        ) !important;
+        --mdc-list-list-item-supporting-text-color: var(
+            --dark-text-secondary
+        ) !important;
+        --mdc-list-list-item-leading-icon-color: var(
+            --dark-text-muted
+        ) !important;
+        --mdc-list-list-item-trailing-supporting-text-color: var(
+            --dark-text-muted
+        ) !important;
+        --mdc-list-list-item-trailing-icon-color: var(
+            --dark-text-muted
+        ) !important;
+        --mdc-list-list-item-hover-state-layer-color: var(
+            --dark-bg-hover
+        ) !important;
+        --mdc-list-list-item-focus-state-layer-color: var(
+            --dark-bg-hover
+        ) !important;
         background-color: transparent !important;
     }
 
@@ -783,8 +818,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Select / Autocomplete
-   -------------------------------------------------------------------------- */
+    Mat Select / Autocomplete
+    -------------------------------------------------------------------------- */
     .mat-mdc-select-panel,
     .mat-select-panel,
     .mat-autocomplete-panel,
@@ -808,8 +843,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Table
-   -------------------------------------------------------------------------- */
+    Mat Table
+    -------------------------------------------------------------------------- */
     .mat-mdc-table,
     .mat-table {
         background-color: var(--dark-bg-card) !important;
@@ -834,8 +869,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Paginator
-   -------------------------------------------------------------------------- */
+    Mat Paginator
+    -------------------------------------------------------------------------- */
     .mat-mdc-paginator,
     .mat-paginator {
         background-color: var(--dark-bg-card) !important;
@@ -847,8 +882,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Tabs
-   -------------------------------------------------------------------------- */
+    Mat Tabs
+    -------------------------------------------------------------------------- */
     .mat-mdc-tab-group,
     .mat-tab-group {
         background-color: transparent !important;
@@ -869,8 +904,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Toolbar
-   -------------------------------------------------------------------------- */
+    Mat Toolbar
+    -------------------------------------------------------------------------- */
     .mat-toolbar,
     .mat-mdc-toolbar {
         background-color: var(--dark-bg-secondary) !important;
@@ -878,8 +913,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Sidenav / Drawer
-   -------------------------------------------------------------------------- */
+    Mat Sidenav / Drawer
+    -------------------------------------------------------------------------- */
     .mat-drawer,
     .mat-sidenav {
         background-color: var(--dark-bg-secondary) !important;
@@ -893,8 +928,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Stepper
-   -------------------------------------------------------------------------- */
+    Mat Stepper
+    -------------------------------------------------------------------------- */
     .mat-stepper-vertical,
     .mat-stepper-horizontal {
         background-color: var(--dark-bg-card) !important;
@@ -914,8 +949,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Datepicker
-   -------------------------------------------------------------------------- */
+    Mat Datepicker
+    -------------------------------------------------------------------------- */
     .mat-datepicker-content {
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
@@ -938,24 +973,26 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Snackbar
-   -------------------------------------------------------------------------- */
+    Mat Snackbar
+    -------------------------------------------------------------------------- */
     .mat-mdc-snack-bar-container {
         --mdc-snackbar-container-color: var(--dark-bg-tertiary) !important;
-        --mdc-snackbar-supporting-text-color: var(--dark-text-primary) !important;
+        --mdc-snackbar-supporting-text-color: var(
+            --dark-text-primary
+        ) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Mat Bottom Sheet
-   -------------------------------------------------------------------------- */
+    Mat Bottom Sheet
+    -------------------------------------------------------------------------- */
     .mat-bottom-sheet-container {
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Mat Tree
-   -------------------------------------------------------------------------- */
+    Mat Tree
+    -------------------------------------------------------------------------- */
     .mat-tree {
         background-color: var(--dark-bg-card) !important;
     }
@@ -965,8 +1002,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Form Field
-   -------------------------------------------------------------------------- */
+    Mat Form Field
+    -------------------------------------------------------------------------- */
     .mat-mdc-form-field,
     .mat-form-field {
         color: var(--dark-text-primary) !important;
@@ -987,15 +1024,18 @@
         background-color: var(--dark-bg-input) !important;
     }
 
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+        .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+        .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+        .mdc-notched-outline__trailing {
         border-color: var(--dark-border-color) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Mat Button Toggle
-   -------------------------------------------------------------------------- */
+    Mat Button Toggle
+    -------------------------------------------------------------------------- */
     .mat-button-toggle-appearance-standard {
         background-color: var(--dark-bg-tertiary) !important;
         color: var(--dark-text-primary) !important;
@@ -1006,8 +1046,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Chip
-   -------------------------------------------------------------------------- */
+    Mat Chip
+    -------------------------------------------------------------------------- */
     .mat-mdc-chip,
     .mat-chip {
         background-color: var(--dark-bg-tertiary) !important;
@@ -1015,16 +1055,16 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mat Progress Bar / Spinner
-   -------------------------------------------------------------------------- */
+    Mat Progress Bar / Spinner
+    -------------------------------------------------------------------------- */
     .mat-mdc-progress-bar,
     .mat-progress-bar {
         --mdc-linear-progress-track-color: var(--dark-bg-tertiary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Mat Slide Toggle / Checkbox / Radio
-   -------------------------------------------------------------------------- */
+    Mat Slide Toggle / Checkbox / Radio
+    -------------------------------------------------------------------------- */
     .mat-mdc-slide-toggle,
     .mat-slide-toggle {
         color: var(--dark-text-primary) !important;
@@ -1035,8 +1075,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   CDK Overlay
-   -------------------------------------------------------------------------- */
+    CDK Overlay
+    -------------------------------------------------------------------------- */
     .cdk-overlay-pane {
         /* Ensure overlays inherit dark colors */
     }
@@ -1046,8 +1086,8 @@
     }
 
     /* ==========================================================================
-   Book Review
-   ========================================================================== */
+    Book Review
+    ========================================================================== */
     .unbound_review_text,
     .unbound_reviews_text,
     .unbound_reviews_source,
@@ -1072,8 +1112,8 @@
     }
 
     /* ==========================================================================
-   BOOTSTRAP POPOVERS (Book Preview Popup)
-   ========================================================================== */
+    BOOTSTRAP POPOVERS (Book Preview Popup)
+    ========================================================================== */
     .popover {
         background-color: var(--dark-bg-card) !important;
         border-color: var(--dark-border-color) !important;
@@ -1092,52 +1132,52 @@
 
     /* Popover arrows */
     .bs-popover-top > .arrow:after,
-    .bs-popover-auto[x-placement^=top] > .arrow:after {
+    .bs-popover-auto[x-placement^="top"] > .arrow:after {
         border-top-color: var(--dark-bg-card) !important;
     }
 
     .bs-popover-bottom > .arrow:after,
-    .bs-popover-auto[x-placement^=bottom] > .arrow:after {
+    .bs-popover-auto[x-placement^="bottom"] > .arrow:after {
         border-bottom-color: var(--dark-bg-card) !important;
     }
 
     .bs-popover-left > .arrow:after,
-    .bs-popover-auto[x-placement^=left] > .arrow:after {
+    .bs-popover-auto[x-placement^="left"] > .arrow:after {
         border-left-color: var(--dark-bg-card) !important;
     }
 
     .bs-popover-right > .arrow:after,
-    .bs-popover-auto[x-placement^=right] > .arrow:after {
+    .bs-popover-auto[x-placement^="right"] > .arrow:after {
         border-right-color: var(--dark-bg-card) !important;
     }
 
     /* Arrow borders */
     .bs-popover-top > .arrow:before,
-    .bs-popover-auto[x-placement^=top] > .arrow:before {
+    .bs-popover-auto[x-placement^="top"] > .arrow:before {
         border-top-color: var(--dark-border-color) !important;
     }
 
     .bs-popover-bottom > .arrow:before,
-    .bs-popover-auto[x-placement^=bottom] > .arrow:before {
+    .bs-popover-auto[x-placement^="bottom"] > .arrow:before {
         border-bottom-color: var(--dark-border-color) !important;
     }
 
     .bs-popover-left > .arrow:before,
-    .bs-popover-auto[x-placement^=left] > .arrow:before {
+    .bs-popover-auto[x-placement^="left"] > .arrow:before {
         border-left-color: var(--dark-border-color) !important;
     }
 
     .bs-popover-right > .arrow:before,
-    .bs-popover-auto[x-placement^=right] > .arrow:before {
+    .bs-popover-auto[x-placement^="right"] > .arrow:before {
         border-right-color: var(--dark-border-color) !important;
     }
 
     /* ==========================================================================
-   LIBRARY-SPECIFIC COMPONENTS (FRC / BiblioCommons)
-   ========================================================================== */
+    LIBRARY-SPECIFIC COMPONENTS (FRC / BiblioCommons)
+    ========================================================================== */
     /* --------------------------------------------------------------------------
-   FRC (Fluid Responsive Components) - Showcase / Carousel
-   -------------------------------------------------------------------------- */
+    FRC (Fluid Responsive Components) - Showcase / Carousel
+    -------------------------------------------------------------------------- */
     [class*="frc-"],
     .frc-showcase-container,
     .frc-carousel,
@@ -1148,8 +1188,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Page Structure / Wrappers
-   -------------------------------------------------------------------------- */
+    Page Structure / Wrappers
+    -------------------------------------------------------------------------- */
     [class*="page-wrapper"],
     [class*="content-wrapper"],
     [class*="main-wrapper"],
@@ -1164,8 +1204,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Edition / Format Tabs Section
-   -------------------------------------------------------------------------- */
+    Edition / Format Tabs Section
+    -------------------------------------------------------------------------- */
     [class*="edition-info"],
     [class*="format-info"],
     [class*="edition-section"],
@@ -1191,12 +1231,13 @@
     [role="tab"][aria-selected="true"] {
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) var(--dark-border-color) var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) var(--dark-border-color)
+            var(--dark-bg-card) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Section Headers / Titles
-   -------------------------------------------------------------------------- */
+    Section Headers / Titles
+    -------------------------------------------------------------------------- */
     [class*="section-header"],
     [class*="section-title"],
     [class*="panel-header"],
@@ -1217,8 +1258,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Quick Preview / Book Hover Popup
-   -------------------------------------------------------------------------- */
+    Quick Preview / Book Hover Popup
+    -------------------------------------------------------------------------- */
     [class*="preview"],
     [class*="quick-look"],
     [class*="hover-card"],
@@ -1274,8 +1315,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Catch-all for any remaining white backgrounds
-   -------------------------------------------------------------------------- */
+    Catch-all for any remaining white backgrounds
+    -------------------------------------------------------------------------- */
     [style*="background-color: white"],
     [style*="background-color:#fff"],
     [style*="background-color: #fff"],
@@ -1299,8 +1340,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Global wildcard for any remaining light elements (use sparingly)
-   -------------------------------------------------------------------------- */
+    Global wildcard for any remaining light elements (use sparingly)
+    -------------------------------------------------------------------------- */
     *[class*="white"]:not([class*="text-white"]):not(.btn-outline-white) {
         background-color: var(--dark-bg-card) !important;
     }
@@ -1320,8 +1361,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Toast Notifications
-   -------------------------------------------------------------------------- */
+    Toast Notifications
+    -------------------------------------------------------------------------- */
     .toast,
     .toast-header,
     .toast-body,
@@ -1332,16 +1373,16 @@
     }
 
     /* --------------------------------------------------------------------------
-   Custom Button Classes from Site CSS
-   -------------------------------------------------------------------------- */
+    Custom Button Classes from Site CSS
+    -------------------------------------------------------------------------- */
     .button-cancel {
         background-color: var(--dark-bg-tertiary) !important;
         color: var(--dark-text-primary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Close / X Buttons
-   -------------------------------------------------------------------------- */
+    Close / X Buttons
+    -------------------------------------------------------------------------- */
     .close,
     .btn-close,
     [class*="close-button"],
@@ -1357,11 +1398,11 @@
     }
 
     /* ==========================================================================
-   LIBRARY-SPECIFIC COMPONENTS (From consolidated styles)
-   ========================================================================== */
+    LIBRARY-SPECIFIC COMPONENTS (From consolidated styles)
+    ========================================================================== */
     /* --------------------------------------------------------------------------
-   FRC (Fluid Responsive Components) - Showcase / Carousel
-   -------------------------------------------------------------------------- */
+    FRC (Fluid Responsive Components) - Showcase / Carousel
+    -------------------------------------------------------------------------- */
     .frc-showcase-container,
     .frc-carousel,
     .frc-item,
@@ -1372,8 +1413,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Showcase List Items
-   -------------------------------------------------------------------------- */
+    Showcase List Items
+    -------------------------------------------------------------------------- */
     .showcase-list,
     .showcase-list-item {
         background-color: var(--dark-bg-card) !important;
@@ -1394,8 +1435,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Swiper / Slider Components
-   -------------------------------------------------------------------------- */
+    Swiper / Slider Components
+    -------------------------------------------------------------------------- */
     .swiper,
     .swiper-wrapper,
     .swiper-slide {
@@ -1422,8 +1463,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Search Bar Components
-   -------------------------------------------------------------------------- */
+    Search Bar Components
+    -------------------------------------------------------------------------- */
     .search-bar,
     .search-bar-container,
     .search-bar--box,
@@ -1502,8 +1543,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Type Ahead / Autocomplete Dropdown
-   -------------------------------------------------------------------------- */
+    Type Ahead / Autocomplete Dropdown
+    -------------------------------------------------------------------------- */
     .type-ahead-container .type-ahead-dropdown ul,
     .type-ahead-container .type-ahead-dropdown .action-button,
     .autocomplete-option {
@@ -1517,8 +1558,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Facet Filters
-   -------------------------------------------------------------------------- */
+    Facet Filters
+    -------------------------------------------------------------------------- */
     .facet-filter,
     .facet-modal,
     .facet-header,
@@ -1542,8 +1583,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Cover / Book Covers
-   -------------------------------------------------------------------------- */
+    Cover / Book Covers
+    -------------------------------------------------------------------------- */
     .cover-container,
     .cover-wrapper,
     .cover-details {
@@ -1551,8 +1592,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   App Buttons
-   -------------------------------------------------------------------------- */
+    App Buttons
+    -------------------------------------------------------------------------- */
     .app-button.button-cancel {
         background-color: var(--dark-bg-tertiary) !important;
         color: var(--dark-text-primary) !important;
@@ -1585,8 +1626,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   INS Buttons (Library custom buttons)
-   -------------------------------------------------------------------------- */
+    INS Buttons (Library custom buttons)
+    -------------------------------------------------------------------------- */
     .ins-buttons.button-primary:focus,
     .ins-buttons.button-primary.focused,
     .ins-buttons.button-secondary:focus,
@@ -1614,8 +1655,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Inspire / Bulk Hold Modals
-   -------------------------------------------------------------------------- */
+    Inspire / Bulk Hold Modals
+    -------------------------------------------------------------------------- */
     .inspire-custom-modal .modal-content,
     .bulk-hold-modal .modal-content {
         background-color: var(--dark-bg-card) !important;
@@ -1623,8 +1664,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Upload Image Container
-   -------------------------------------------------------------------------- */
+    Upload Image Container
+    -------------------------------------------------------------------------- */
     .upload-image-container .dropdown,
     .upload-image-container .dropdown .color-container,
     .upload-image-container .overlay-container,
@@ -1639,8 +1680,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Bookshelf Components
-   -------------------------------------------------------------------------- */
+    Bookshelf Components
+    -------------------------------------------------------------------------- */
     .bookshelf,
     .bookshelf-content,
     .bookshelf-content-wrapper,
@@ -1670,8 +1711,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Account Components
-   -------------------------------------------------------------------------- */
+    Account Components
+    -------------------------------------------------------------------------- */
     .account-card-cover-container,
     .account-tab-content,
     .account-tab-header {
@@ -1684,8 +1725,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Breadcrumbs
-   -------------------------------------------------------------------------- */
+    Breadcrumbs
+    -------------------------------------------------------------------------- */
     .breadcrumb {
         background-color: var(--dark-bg-tertiary) !important;
     }
@@ -1703,8 +1744,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Pagination
-   -------------------------------------------------------------------------- */
+    Pagination
+    -------------------------------------------------------------------------- */
     .page-link {
         background-color: var(--dark-bg-card) !important;
         border-color: var(--dark-border-color) !important;
@@ -1728,8 +1769,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Switch / Toggle Buttons
-   -------------------------------------------------------------------------- */
+    Switch / Toggle Buttons
+    -------------------------------------------------------------------------- */
     .switch-button .slider {
         background-color: var(--dark-bg-tertiary) !important;
     }
@@ -1739,8 +1780,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Popover Header
-   -------------------------------------------------------------------------- */
+    Popover Header
+    -------------------------------------------------------------------------- */
     .popover-header {
         background-color: var(--dark-bg-tertiary) !important;
         border-color: var(--dark-border-color) !important;
@@ -1753,8 +1794,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   Custom Select / Form Controls
-   -------------------------------------------------------------------------- */
+    Custom Select / Form Controls
+    -------------------------------------------------------------------------- */
     .custom-select,
     .custom-file-label,
     .custom-control-label::before {
@@ -1764,16 +1805,16 @@
     }
 
     /* --------------------------------------------------------------------------
-   Mark / Highlight
-   -------------------------------------------------------------------------- */
+    Mark / Highlight
+    -------------------------------------------------------------------------- */
     mark {
         background-color: rgba(251, 191, 36, 0.3) !important;
         color: var(--dark-text-primary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Generic Input Types
-   -------------------------------------------------------------------------- */
+    Generic Input Types
+    -------------------------------------------------------------------------- */
     input[type="email"],
     input[type="number"],
     input[type="search"],
@@ -1802,18 +1843,19 @@
     }
 
     /* --------------------------------------------------------------------------
-   Nav Tabs Active State
-   -------------------------------------------------------------------------- */
+    Nav Tabs Active State
+    -------------------------------------------------------------------------- */
     .nav-tabs .nav-link.active,
     .nav-tabs .nav-item.show .nav-link {
         background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) var(--dark-border-color) var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) var(--dark-border-color)
+            var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Carousel Indicators
-   -------------------------------------------------------------------------- */
+    Carousel Indicators
+    -------------------------------------------------------------------------- */
     .carousel-indicators li {
         background-color: var(--dark-text-muted) !important;
     }
@@ -1823,16 +1865,16 @@
     }
 
     /* --------------------------------------------------------------------------
-   Image Thumbnails
-   -------------------------------------------------------------------------- */
+    Image Thumbnails
+    -------------------------------------------------------------------------- */
     .img-thumbnail {
         background-color: var(--dark-bg-tertiary) !important;
         border-color: var(--dark-border-color) !important;
     }
 
     /* --------------------------------------------------------------------------
-   MDC Data Table
-   -------------------------------------------------------------------------- */
+    MDC Data Table
+    -------------------------------------------------------------------------- */
     .mdc-data-table,
     .mdc-data-table__header-cell {
         background-color: var(--dark-bg-card) !important;
@@ -1855,8 +1897,8 @@
     }
 
     /* --------------------------------------------------------------------------
-   MDC List Items
-   -------------------------------------------------------------------------- */
+    MDC List Items
+    -------------------------------------------------------------------------- */
     .mdc-list-item__primary-text {
         color: var(--dark-text-primary) !important;
     }
@@ -1875,23 +1917,23 @@
     }
 
     /* --------------------------------------------------------------------------
-   MDC Menu Surface
-   -------------------------------------------------------------------------- */
+    MDC Menu Surface
+    -------------------------------------------------------------------------- */
     .mdc-menu-surface {
         background-color: var(--dark-bg-card) !important;
         color: var(--dark-text-primary) !important;
     }
 
     /* --------------------------------------------------------------------------
-   Mat Tab Header Pagination
-   -------------------------------------------------------------------------- */
+    Mat Tab Header Pagination
+    -------------------------------------------------------------------------- */
     .mat-mdc-tab-header-pagination-chevron {
         border-color: var(--dark-text-primary) !important;
     }
 
     /* ==========================================================================
-   PRINT STYLES (disable dark mode for printing)
-   ========================================================================== */
+    PRINT STYLES (disable dark mode for printing)
+    ========================================================================== */
     @media print {
         *,
         *::before,

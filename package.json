@@ -1,0 +1,18 @@
+{
+    "name": "stylus-css",
+    "version": "1.0.0",
+    "description": "Tom VanAntwerp's custom CSS styles",
+    "homepage": "https://github.com/tvanantwerp/stylus-css#readme",
+    "bugs": {
+        "url": "https://github.com/tvanantwerp/stylus-css/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tvanantwerp/stylus-css.git"
+    },
+    "license": "CC-BY-NC-SA-4.0",
+    "author": "Tom VanAntwerp",
+    "devDependencies": {
+        "prettier": "^3.7.3"
+    }
+}
