@@ -1,9 +1,13 @@
 /* ==UserStyle==
-@name           alexandria.na5.iiivega.com/search/card
-@namespace      github.com/openstyles/stylus
+@name           Alexandria VA Library Catalog Dark Mode
+@description    Adds a dark mode for the Alexandria, VA library's catalog website
+@namespace      tvanantwerp
+@author         Tom VanAntwerp
 @version        1.0.0
-@description    A new userstyle
-@author         Me
+@homepageURL    https://github.com/tvanantwerp/stylus-css/
+@supportURL     https://github.com/tvanantwerp/stylus-css/issues
+@license        CC-BY-NC-SA-4.0
+@preprocessor   stylus
 ==/UserStyle== */
 @-moz-document url-prefix("https://alexandria.na5.iiivega.com") {
     /* ==========================================================================
