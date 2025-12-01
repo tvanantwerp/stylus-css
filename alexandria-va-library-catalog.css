@@ -1,0 +1,1906 @@
+/* ==UserStyle==
+@name           alexandria.na5.iiivega.com/search/card
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document url-prefix("https://alexandria.na5.iiivega.com") {
+    /* ==========================================================================
+   Alexandria Library Catalog - Dark Mode for Stylus
+   Target: alexlibraryva.org (and similar BiblioCommons-based catalogs)
+   ========================================================================== */
+    /* --------------------------------------------------------------------------
+   CSS Custom Properties (for easy customization)
+   -------------------------------------------------------------------------- */
+    :root {
+        --dark-bg-primary: #1a1a2e;
+        --dark-bg-secondary: #16213e;
+        --dark-bg-tertiary: #202040;
+        --dark-bg-card: #252542;
+        --dark-bg-input: #2a2a4a;
+        --dark-bg-hover: #303055;
+
+        --dark-text-primary: #e8e8e8;
+        --dark-text-secondary: #b0b0b0;
+        --dark-text-muted: #888899;
+
+        --dark-border-color: #3a3a5a;
+        --dark-border-light: #4a4a6a;
+
+        --dark-link-color: #6db3f2;
+        --dark-link-hover: #8ec5f6;
+
+        --dark-brand-flint: #7a9ec2;
+        --dark-brand-flint-hover: #93b5d4;
+
+        --dark-success: #4ade80;
+        --dark-danger: #f87171;
+        --dark-warning: #fbbf24;
+        --dark-info: #38bdf8;
+
+        /* MDC Theme Variables Override */
+        --mdc-theme-surface: var(--dark-bg-card) !important;
+        --mdc-theme-on-surface: var(--dark-text-primary) !important;
+        --mdc-theme-background: var(--dark-bg-primary) !important;
+        --mdc-theme-text-primary-on-background: var(--dark-text-primary) !important;
+        --mdc-theme-text-secondary-on-background: var(--dark-text-secondary) !important;
+        --mdc-theme-text-hint-on-background: var(--dark-text-muted) !important;
+        --mdc-theme-text-disabled-on-background: var(--dark-text-muted) !important;
+        --mdc-theme-text-icon-on-background: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Base / Global
+   -------------------------------------------------------------------------- */
+    html,
+    body {
+        background-color: var(--dark-bg-primary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+    a {
+        color: var(--dark-link-color) !important;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--dark-link-hover) !important;
+    }
+
+    /* Brand-colored links (author names, library links, etc.) */
+    a[class*="flint"],
+    .text-flint a,
+    a.text-flint {
+        color: var(--dark-brand-flint) !important;
+    }
+
+    a[class*="flint"]:hover,
+    .text-flint a:hover {
+        color: var(--dark-brand-flint-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Header / Navigation
+   -------------------------------------------------------------------------- */
+    header,
+    .header,
+    nav,
+    .navbar,
+    .navbar-light,
+    [class*="header"],
+    [class*="nav-bar"],
+    [class*="top-bar"] {
+        background-color: var(--dark-bg-secondary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-text {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link:focus {
+        color: var(--dark-link-color) !important;
+    }
+
+    /* Secondary navigation bar */
+    [class*="menu-bar"],
+    [class*="sub-nav"],
+    .bg-light {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    nav a:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Cards and Content Containers
+   -------------------------------------------------------------------------- */
+    .card,
+    .card-body,
+    .card-header,
+    .card-footer,
+    [class*="content-card"],
+    [class*="detail-card"],
+    [class*="resource-card"],
+    [class*="item-card"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .gradient {
+        background-color: var(--dark-bg-primary) !important;
+        background-image: none !important;
+    }
+
+    /* Main content areas */
+    main,
+    .main,
+    [class*="main-content"],
+    [class*="content-area"],
+    [class*="page-content"],
+    article,
+    section {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    /* Resource/Book detail sections */
+    [class*="resource-detail"],
+    [class*="book-detail"],
+    [class*="item-detail"],
+    [class*="bib-item"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Text Colors
+   -------------------------------------------------------------------------- */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        color: var(--dark-text-primary) !important;
+    }
+
+    p,
+    span,
+    div,
+    li,
+    td,
+    th,
+    label {
+        color: var(--dark-text-primary);
+    }
+
+    .text-dark {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .text-muted,
+    .text-secondary,
+    small,
+    .small,
+    [class*="subtitle"],
+    [class*="meta"],
+    [class*="info-text"] {
+        color: var(--dark-text-muted) !important;
+    }
+
+    .text-body {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+    /* Primary / Flint buttons */
+    .btn-primary,
+    .btn-flint,
+    [class*="btn-primary"],
+    [class*="btn-flint"] {
+        background-color: var(--dark-brand-flint) !important;
+        border-color: var(--dark-brand-flint) !important;
+        color: #1a1a2e !important;
+    }
+
+    .btn-primary:hover,
+    .btn-flint:hover,
+    [class*="btn-primary"]:hover,
+    [class*="btn-flint"]:hover {
+        background-color: var(--dark-brand-flint-hover) !important;
+        border-color: var(--dark-brand-flint-hover) !important;
+    }
+
+    /* Outline buttons */
+    .btn-outline-primary,
+    .btn-outline-flint,
+    .btn-outline-secondary,
+    [class*="btn-outline"] {
+        background-color: transparent !important;
+        border-color: var(--dark-border-light) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .btn-outline-primary:hover,
+    .btn-outline-flint:hover,
+    .btn-outline-secondary:hover,
+    [class*="btn-outline"]:hover {
+        background-color: var(--dark-bg-hover) !important;
+        border-color: var(--dark-brand-flint) !important;
+        color: var(--dark-brand-flint) !important;
+    }
+
+    /* Light/Secondary buttons */
+    .btn-light,
+    .btn-secondary,
+    .search-container button {
+        background-color: var(--dark-bg-tertiary) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .btn-light:hover,
+    .btn-secondary:hover,
+    .search-container button:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Forms and Inputs
+   -------------------------------------------------------------------------- */
+    input,
+    textarea,
+    select,
+    .form-control,
+    .form-select,
+    .custom-select,
+    [class*="search-input"],
+    [class*="text-input"] {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder,
+    .form-control::placeholder {
+        color: var(--dark-text-muted) !important;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    .form-control:focus {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-brand-flint) !important;
+        box-shadow: 0 0 0 0.2rem rgba(122, 158, 194, 0.25) !important;
+    }
+
+    /* Search bar */
+    [class*="search-box"],
+    [class*="search-bar"],
+    [class*="search-form"] {
+        background-color: var(--dark-bg-input) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Tabs
+   -------------------------------------------------------------------------- */
+    .nav-tabs,
+    .nav-pills,
+    [class*="tab-list"],
+    [class*="tabs"] {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .nav-tabs .nav-link,
+    .nav-pills .nav-link,
+    [class*="tab-item"],
+    [class*="tab-link"] {
+        color: var(--dark-text-secondary) !important;
+        background-color: transparent !important;
+        border-color: transparent !important;
+    }
+
+    .nav-tabs .nav-link:hover,
+    .nav-pills .nav-link:hover {
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-light) !important;
+    }
+
+    .nav-tabs .nav-link.active,
+    .nav-pills .nav-link.active,
+    [class*="tab-item"].active,
+    [class*="tab-link"].active,
+    [class*="tab"][aria-selected="true"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+    table,
+    .table {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .table th,
+    .table td {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .table thead th {
+        background-color: var(--dark-bg-tertiary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Modals and Dialogs
+   -------------------------------------------------------------------------- */
+    .modal-content,
+    .modal-header,
+    .modal-body,
+    .modal-footer,
+    [class*="dialog"],
+    [class*="popup"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .modal-header,
+    .modal-footer {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Dropdowns
+   -------------------------------------------------------------------------- */
+    .dropdown-menu,
+    [class*="dropdown-list"],
+    [class*="menu-dropdown"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .dropdown-item,
+    .dropdown-menu a {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus,
+    .dropdown-menu a:hover {
+        background-color: var(--dark-bg-hover) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .dropdown-divider {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   List Groups
+   -------------------------------------------------------------------------- */
+    .list-group-item,
+    [class*="list-item"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .list-group-item:hover,
+    .list-group-item-action:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .list-group-item.active {
+        background-color: var(--dark-brand-flint) !important;
+        border-color: var(--dark-brand-flint) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Badges and Labels
+   -------------------------------------------------------------------------- */
+    .badge,
+    [class*="badge"],
+    [class*="label"],
+    [class*="tag"] {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .badge-primary,
+    .badge-flint {
+        background-color: var(--dark-brand-flint) !important;
+        color: #1a1a2e !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Alerts / Status Colors
+   -------------------------------------------------------------------------- */
+    /* Success (available items) */
+    .text-success,
+    .alert-success,
+    [class*="available"],
+    [class*="success"] {
+        color: var(--dark-success) !important;
+    }
+
+    .bg-success,
+    .alert-success {
+        background-color: rgba(74, 222, 128, 0.15) !important;
+        border-color: var(--dark-success) !important;
+    }
+
+    /* Danger (unavailable items) */
+    .text-danger,
+    .alert-danger,
+    [class*="unavailable"],
+    [class*="error"] {
+        color: var(--dark-danger) !important;
+    }
+
+    .bg-danger,
+    .alert-danger {
+        background-color: rgba(248, 113, 113, 0.15) !important;
+        border-color: var(--dark-danger) !important;
+    }
+
+    /* Warning */
+    .text-warning,
+    .alert-warning {
+        color: var(--dark-warning) !important;
+    }
+
+    .bg-warning,
+    .alert-warning {
+        background-color: rgba(251, 191, 36, 0.15) !important;
+        border-color: var(--dark-warning) !important;
+    }
+
+    /* Info */
+    .text-info,
+    .alert-info {
+        color: var(--dark-info) !important;
+    }
+
+    .bg-info,
+    .alert-info {
+        background-color: rgba(56, 189, 248, 0.15) !important;
+        border-color: var(--dark-info) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Borders
+   -------------------------------------------------------------------------- */
+    .border,
+    .border-top,
+    .border-bottom,
+    .border-left,
+    .border-right,
+    [class*="border"] {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    hr {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Background Utilities
+   -------------------------------------------------------------------------- */
+    .bg-white {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .bg-light {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    .bg-dark {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Tooltips
+   -------------------------------------------------------------------------- */
+    .tippy-box,
+    .tooltip,
+    [class*="tooltip"] {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .tippy-arrow {
+        color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Scrollbar (Webkit browsers)
+   -------------------------------------------------------------------------- */
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--dark-bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--dark-border-light);
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--dark-text-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+   Library-Specific Elements (BiblioCommons / Alexandria)
+   -------------------------------------------------------------------------- */
+    /* Book cover containers */
+    [class*="cover-image"],
+    [class*="book-cover"],
+    [class*="jacket-image"],
+    [class*="thumbnail"] {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* Series carousel / "More in this Series" sections */
+    [class*="carousel"],
+    [class*="series"],
+    [class*="related-items"],
+    [class*="recommendations"] {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* Availability indicators */
+    [class*="availability"],
+    [class*="status-indicator"],
+    [class*="branch-availability"] {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    /* Edition information section */
+    [class*="edition"],
+    [class*="format-tab"],
+    [class*="format-panel"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* Holds/copies info */
+    [class*="holds"],
+    [class*="copies"] {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* Footer */
+    footer,
+    .footer,
+    [class*="footer"] {
+        background-color: var(--dark-bg-secondary) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   SVG Icons (invert for visibility)
+   -------------------------------------------------------------------------- */
+    svg:not([class*="logo"]):not([class*="brand"]) {
+        filter: brightness(0.9) invert(0.1);
+    }
+
+    /* Checkmark and X icons in availability - preserve their colors */
+    [class*="check"] svg,
+    [class*="success"] svg,
+    [class*="available"] svg {
+        filter: none !important;
+        color: var(--dark-success) !important;
+    }
+
+    [class*="times"] svg,
+    [class*="danger"] svg,
+    [class*="unavailable"] svg,
+    [class*="error"] svg {
+        filter: none !important;
+        color: var(--dark-danger) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Image Adjustments (optional - slightly dim bright images)
+   -------------------------------------------------------------------------- */
+    img:not([class*="logo"]):not([class*="brand"]):not([class*="cover"]):not([class*="avatar"]) {
+        opacity: 0.92;
+    }
+
+    /* --------------------------------------------------------------------------
+   Focus States (accessibility)
+   -------------------------------------------------------------------------- */
+    *:focus {
+        outline-color: var(--dark-brand-flint) !important;
+    }
+
+    *:focus-visible {
+        outline: 2px solid var(--dark-brand-flint) !important;
+        outline-offset: 2px;
+    }
+
+    /* ==========================================================================
+   ANGULAR MATERIAL / MDC COMPONENTS
+   ========================================================================== */
+    /* --------------------------------------------------------------------------
+   Mat Dialog / Modal
+   -------------------------------------------------------------------------- */
+    .mat-mdc-dialog-container,
+    .mat-dialog-container,
+    .cdk-dialog-container {
+        --mdc-dialog-container-color: var(--dark-bg-card) !important;
+        --mdc-dialog-with-divider-divider-color: var(--dark-border-color) !important;
+        --mdc-dialog-subhead-color: var(--dark-text-primary) !important;
+        --mdc-dialog-supporting-text-color: var(--dark-text-secondary) !important;
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-dialog-surface,
+    .mdc-dialog__surface {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Menu
+   -------------------------------------------------------------------------- */
+    .mat-mdc-menu-panel,
+    .mat-menu-panel,
+    .mdc-menu-surface {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-menu-item,
+    .mat-menu-item {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-menu-item:hover:not([disabled]),
+    .mat-mdc-menu-item.cdk-program-focused:not([disabled]),
+    .mat-mdc-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-mdc-menu-item-highlighted:not([disabled]) {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .mat-mdc-menu-item .mat-icon-no-color,
+    .mat-mdc-menu-submenu-icon {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Card
+   -------------------------------------------------------------------------- */
+    .mat-mdc-card,
+    .mat-card {
+        --mdc-elevated-card-container-color: var(--dark-bg-card) !important;
+        --mdc-outlined-card-outline-color: var(--dark-border-color) !important;
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-card-subtitle,
+    .mat-card-subtitle {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Expansion Panel
+   -------------------------------------------------------------------------- */
+    .mat-expansion-panel {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-expansion-panel:not([class*=mat-elevation-z]) {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.4), 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]),
+    .mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]),
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .mat-expansion-panel-header-title {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-expansion-panel-header-description,
+    .mat-expansion-indicator:after {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat List
+   -------------------------------------------------------------------------- */
+    .mat-mdc-list-base,
+    .mat-list-base,
+    .mat-nav-list,
+    .mat-selection-list {
+        --mdc-list-list-item-label-text-color: var(--dark-text-primary) !important;
+        --mdc-list-list-item-supporting-text-color: var(--dark-text-secondary) !important;
+        --mdc-list-list-item-leading-icon-color: var(--dark-text-muted) !important;
+        --mdc-list-list-item-trailing-supporting-text-color: var(--dark-text-muted) !important;
+        --mdc-list-list-item-trailing-icon-color: var(--dark-text-muted) !important;
+        --mdc-list-list-item-hover-state-layer-color: var(--dark-bg-hover) !important;
+        --mdc-list-list-item-focus-state-layer-color: var(--dark-bg-hover) !important;
+        background-color: transparent !important;
+    }
+
+    .mat-mdc-list-item,
+    .mat-list-item,
+    .mdc-list-item {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-list-item__primary-text {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-list-item__secondary-text {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Select / Autocomplete
+   -------------------------------------------------------------------------- */
+    .mat-mdc-select-panel,
+    .mat-select-panel,
+    .mat-autocomplete-panel,
+    .mat-mdc-autocomplete-panel {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .mat-mdc-option,
+    .mat-option {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+    .mat-option:hover:not(.mat-option-disabled) {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .mat-mdc-optgroup-label,
+    .mat-optgroup-label {
+        color: var(--dark-text-muted) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Table
+   -------------------------------------------------------------------------- */
+    .mat-mdc-table,
+    .mat-table {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-header-cell,
+    .mat-header-cell {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-cell,
+    .mat-cell {
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .mat-mdc-row:hover,
+    .mat-row:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Paginator
+   -------------------------------------------------------------------------- */
+    .mat-mdc-paginator,
+    .mat-paginator {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-paginator-container {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Tabs
+   -------------------------------------------------------------------------- */
+    .mat-mdc-tab-group,
+    .mat-tab-group {
+        background-color: transparent !important;
+    }
+
+    .mat-mdc-tab,
+    .mat-tab-label {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .mat-mdc-tab.mdc-tab--active,
+    .mat-tab-label-active {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-tab-header {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Toolbar
+   -------------------------------------------------------------------------- */
+    .mat-toolbar,
+    .mat-mdc-toolbar {
+        background-color: var(--dark-bg-secondary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Sidenav / Drawer
+   -------------------------------------------------------------------------- */
+    .mat-drawer,
+    .mat-sidenav {
+        background-color: var(--dark-bg-secondary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-drawer-container,
+    .mat-sidenav-container {
+        background-color: var(--dark-bg-primary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Stepper
+   -------------------------------------------------------------------------- */
+    .mat-stepper-vertical,
+    .mat-stepper-horizontal {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .mat-step-header {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-step-label {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .mat-step-label-selected,
+    .mat-step-label-active {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Datepicker
+   -------------------------------------------------------------------------- */
+    .mat-datepicker-content {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-calendar {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .mat-calendar-body-cell-content {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-calendar-body-disabled > .mat-calendar-body-cell-content {
+        color: var(--dark-text-muted) !important;
+    }
+
+    .mat-calendar-table-header {
+        color: var(--dark-text-muted) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Snackbar
+   -------------------------------------------------------------------------- */
+    .mat-mdc-snack-bar-container {
+        --mdc-snackbar-container-color: var(--dark-bg-tertiary) !important;
+        --mdc-snackbar-supporting-text-color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Bottom Sheet
+   -------------------------------------------------------------------------- */
+    .mat-bottom-sheet-container {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Tree
+   -------------------------------------------------------------------------- */
+    .mat-tree {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .mat-tree-node {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Form Field
+   -------------------------------------------------------------------------- */
+    .mat-mdc-form-field,
+    .mat-form-field {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-mdc-form-field-label,
+    .mat-form-field-label {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .mat-mdc-input-element,
+    .mat-input-element {
+        color: var(--dark-text-primary) !important;
+        caret-color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background-color: var(--dark-bg-input) !important;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Button Toggle
+   -------------------------------------------------------------------------- */
+    .mat-button-toggle-appearance-standard {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mat-button-toggle-checked {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Chip
+   -------------------------------------------------------------------------- */
+    .mat-mdc-chip,
+    .mat-chip {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Progress Bar / Spinner
+   -------------------------------------------------------------------------- */
+    .mat-mdc-progress-bar,
+    .mat-progress-bar {
+        --mdc-linear-progress-track-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Slide Toggle / Checkbox / Radio
+   -------------------------------------------------------------------------- */
+    .mat-mdc-slide-toggle,
+    .mat-slide-toggle {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-form-field {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   CDK Overlay
+   -------------------------------------------------------------------------- */
+    .cdk-overlay-pane {
+        /* Ensure overlays inherit dark colors */
+    }
+
+    .cdk-overlay-dark-backdrop {
+        background: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* ==========================================================================
+   Book Review
+   ========================================================================== */
+    .unbound_review_text,
+    .unbound_reviews_text,
+    .unbound_reviews_source,
+    .unbound_reviews_reviewdby,
+    .unbound_author_biography,
+    .unbound_author_name {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .contributors-content-row .year,
+    app-contributor .year {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .unbound_review_by_text {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .showcase-container-inner,
+    .showcase-container-inner section {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    /* ==========================================================================
+   BOOTSTRAP POPOVERS (Book Preview Popup)
+   ========================================================================== */
+    .popover {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .popover-header {
+        background-color: var(--dark-bg-tertiary) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .popover-body {
+        color: var(--dark-text-primary) !important;
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    /* Popover arrows */
+    .bs-popover-top > .arrow:after,
+    .bs-popover-auto[x-placement^=top] > .arrow:after {
+        border-top-color: var(--dark-bg-card) !important;
+    }
+
+    .bs-popover-bottom > .arrow:after,
+    .bs-popover-auto[x-placement^=bottom] > .arrow:after {
+        border-bottom-color: var(--dark-bg-card) !important;
+    }
+
+    .bs-popover-left > .arrow:after,
+    .bs-popover-auto[x-placement^=left] > .arrow:after {
+        border-left-color: var(--dark-bg-card) !important;
+    }
+
+    .bs-popover-right > .arrow:after,
+    .bs-popover-auto[x-placement^=right] > .arrow:after {
+        border-right-color: var(--dark-bg-card) !important;
+    }
+
+    /* Arrow borders */
+    .bs-popover-top > .arrow:before,
+    .bs-popover-auto[x-placement^=top] > .arrow:before {
+        border-top-color: var(--dark-border-color) !important;
+    }
+
+    .bs-popover-bottom > .arrow:before,
+    .bs-popover-auto[x-placement^=bottom] > .arrow:before {
+        border-bottom-color: var(--dark-border-color) !important;
+    }
+
+    .bs-popover-left > .arrow:before,
+    .bs-popover-auto[x-placement^=left] > .arrow:before {
+        border-left-color: var(--dark-border-color) !important;
+    }
+
+    .bs-popover-right > .arrow:before,
+    .bs-popover-auto[x-placement^=right] > .arrow:before {
+        border-right-color: var(--dark-border-color) !important;
+    }
+
+    /* ==========================================================================
+   LIBRARY-SPECIFIC COMPONENTS (FRC / BiblioCommons)
+   ========================================================================== */
+    /* --------------------------------------------------------------------------
+   FRC (Fluid Responsive Components) - Showcase / Carousel
+   -------------------------------------------------------------------------- */
+    [class*="frc-"],
+    .frc-showcase-container,
+    .frc-carousel,
+    .frc-item,
+    .frc-slide {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Page Structure / Wrappers
+   -------------------------------------------------------------------------- */
+    [class*="page-wrapper"],
+    [class*="content-wrapper"],
+    [class*="main-wrapper"],
+    [class*="app-wrapper"],
+    [class*="site-wrapper"],
+    .wrapper,
+    #wrapper,
+    #app,
+    #root,
+    [class*="layout"] {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Edition / Format Tabs Section
+   -------------------------------------------------------------------------- */
+    [class*="edition-info"],
+    [class*="format-info"],
+    [class*="edition-section"],
+    [class*="format-section"],
+    [class*="tab-content"],
+    [class*="tab-pane"] {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* Tab headers / labels */
+    [class*="edition"] .nav-tabs,
+    [class*="format"] .nav-tabs,
+    [class*="edition"] [class*="tab"],
+    [class*="format"] [class*="tab"] {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* Active/selected tab */
+    [class*="edition"] .nav-link.active,
+    [class*="format"] .nav-link.active,
+    [class*="tab"].active,
+    [role="tab"][aria-selected="true"] {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) var(--dark-border-color) var(--dark-bg-card) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Section Headers / Titles
+   -------------------------------------------------------------------------- */
+    [class*="section-header"],
+    [class*="section-title"],
+    [class*="panel-header"],
+    [class*="panel-title"],
+    [class*="block-header"],
+    [class*="block-title"] {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* "More in this Series" and similar sections */
+    [class*="series-section"],
+    [class*="related-section"],
+    [class*="similar-section"],
+    [class*="recommendation-section"] {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Quick Preview / Book Hover Popup
+   -------------------------------------------------------------------------- */
+    [class*="preview"],
+    [class*="quick-look"],
+    [class*="hover-card"],
+    [class*="item-preview"],
+    [class*="book-preview"],
+    [class*="resource-preview"] {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* Book preview popup specific elements */
+    [class*="preview"] h1,
+    [class*="preview"] h2,
+    [class*="preview"] h3,
+    [class*="preview"] h4,
+    [class*="preview"] h5,
+    [class*="preview"] h6,
+    [class*="preview"] .title,
+    [class*="preview"] [class*="title"] {
+        color: var(--dark-text-primary) !important;
+    }
+
+    [class*="preview"] p,
+    [class*="preview"] span,
+    [class*="preview"] [class*="description"],
+    [class*="preview"] [class*="author"] {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* Check Availability and similar buttons in previews */
+    [class*="preview"] .btn,
+    [class*="preview"] button,
+    .popover .btn,
+    .popover button {
+        background-color: var(--dark-brand-flint) !important;
+        border-color: var(--dark-brand-flint) !important;
+        color: #ffffff !important;
+    }
+
+    [class*="preview"] .btn:hover,
+    [class*="preview"] button:hover,
+    .popover .btn:hover,
+    .popover button:hover {
+        background-color: var(--dark-brand-flint-hover) !important;
+        border-color: var(--dark-brand-flint-hover) !important;
+    }
+
+    /* Star ratings in previews */
+    [class*="rating"],
+    [class*="stars"] {
+        color: var(--dark-warning) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Catch-all for any remaining white backgrounds
+   -------------------------------------------------------------------------- */
+    [style*="background-color: white"],
+    [style*="background-color:#fff"],
+    [style*="background-color: #fff"],
+    [style*="background-color:#ffffff"],
+    [style*="background-color: #ffffff"],
+    [style*="background-color: rgb(255, 255, 255)"],
+    [style*="background: white"],
+    [style*="background:#fff"],
+    [style*="background: #fff"] {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    [style*="color: black"],
+    [style*="color:#000"],
+    [style*="color: #000"],
+    [style*="color:#212529"],
+    [style*="color: #212529"],
+    [style*="color: rgb(0, 0, 0)"],
+    [style*="color: rgb(33, 37, 41)"] {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Global wildcard for any remaining light elements (use sparingly)
+   -------------------------------------------------------------------------- */
+    *[class*="white"]:not([class*="text-white"]):not(.btn-outline-white) {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    /* Fix button text that should stay light on dark buttons */
+    .btn-flint,
+    .btn-primary,
+    .btn-success,
+    .btn-danger,
+    .btn-info,
+    .btn-warning {
+        color: #ffffff !important;
+    }
+
+    .btn-warning {
+        color: #1a1a2e !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Toast Notifications
+   -------------------------------------------------------------------------- */
+    .toast,
+    .toast-header,
+    .toast-body,
+    [class*="toast"] {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Custom Button Classes from Site CSS
+   -------------------------------------------------------------------------- */
+    .button-cancel {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Close / X Buttons
+   -------------------------------------------------------------------------- */
+    .close,
+    .btn-close,
+    [class*="close-button"],
+    [aria-label="Close"] {
+        color: var(--dark-text-primary) !important;
+        opacity: 0.8 !important;
+    }
+
+    .close:hover,
+    .btn-close:hover {
+        color: var(--dark-text-primary) !important;
+        opacity: 1 !important;
+    }
+
+    /* ==========================================================================
+   LIBRARY-SPECIFIC COMPONENTS (From consolidated styles)
+   ========================================================================== */
+    /* --------------------------------------------------------------------------
+   FRC (Fluid Responsive Components) - Showcase / Carousel
+   -------------------------------------------------------------------------- */
+    .frc-showcase-container,
+    .frc-carousel,
+    .frc-item,
+    .frc-slide,
+    [class*="frc-"] {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Showcase List Items
+   -------------------------------------------------------------------------- */
+    .showcase-list,
+    .showcase-list-item {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .showcase-list-item .title {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .showcase-list-item.active {
+        border-color: var(--dark-link-color) !important;
+    }
+
+    .showcase-list-item.dragging-over {
+        background-color: rgba(109, 179, 242, 0.15) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Swiper / Slider Components
+   -------------------------------------------------------------------------- */
+    .swiper,
+    .swiper-wrapper,
+    .swiper-slide {
+        background-color: transparent !important;
+    }
+
+    .slider .swiper-button-prev,
+    .slider .swiper-button-next {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .slider .swiper-pagination {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .swiper-pagination-bullet {
+        background-color: var(--dark-text-muted) !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--dark-brand-flint) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Search Bar Components
+   -------------------------------------------------------------------------- */
+    .search-bar,
+    .search-bar-container,
+    .search-bar--box,
+    [class*="search-bar"] {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .search-bar--input,
+    .search-compact-input,
+    .search-bar__reversed-small .search-bar--input {
+        background-color: var(--dark-bg-input) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .search-bar--clear-btn,
+    .search-bar__reversed-small .search-bar--clear-btn {
+        background-color: var(--dark-bg-input) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .search-icon-container,
+    .type-ahead-container .search-icon-container {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .search-content,
+    .search-results,
+    .search-facets-container {
+        background-color: var(--dark-bg-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .search-dialog {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .facet {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .card[data-automation-id="search-card"],
+    .card[data-automation-id="search-card"] .row,
+    app-physical-item-availability section {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    span[data-automation-id="item-availability-message"] {
+        background: none !important;
+    }
+
+    app-facet-expansion-panel fieldset {
+        margin: 0;
+    }
+
+    .bubble,
+    .view-toggle {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    .view-toggle .active {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-bg-text) !important;
+    }
+
+    .custom-dropdown__toggle {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-bg-text) !important;
+    }
+
+    .custom-dropdown__toggle:hover,
+    .view-toggle button:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Type Ahead / Autocomplete Dropdown
+   -------------------------------------------------------------------------- */
+    .type-ahead-container .type-ahead-dropdown ul,
+    .type-ahead-container .type-ahead-dropdown .action-button,
+    .autocomplete-option {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .autocomplete-option:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Facet Filters
+   -------------------------------------------------------------------------- */
+    .facet-filter,
+    .facet-modal,
+    .facet-header,
+    .facet-line,
+    .filter:hover,
+    .facet-checkbox,
+    .facet-label,
+    .facet-count,
+    [class*="facet-"] {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .filter:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .facet-header__label {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Cover / Book Covers
+   -------------------------------------------------------------------------- */
+    .cover-container,
+    .cover-wrapper,
+    .cover-details {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   App Buttons
+   -------------------------------------------------------------------------- */
+    .app-button.button-cancel {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .app-button.button-cancel:hover,
+    .app-button.button-cancel:active {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .app-button.button-outlined:hover,
+    .app-button.button-text:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .app-button.button-labelled {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .app-button.button-labelled:hover,
+    .app-button.button-labelled:focus {
+        background-color: var(--dark-bg-hover) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .more-less-button {
+        background-color: var(--dark-bg-hover) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   INS Buttons (Library custom buttons)
+   -------------------------------------------------------------------------- */
+    .ins-buttons.button-primary:focus,
+    .ins-buttons.button-primary.focused,
+    .ins-buttons.button-secondary:focus,
+    .ins-buttons.button-secondary.focused {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .ins-buttons.button-primary:active,
+    .ins-buttons.button-primary.pressed,
+    .ins-buttons.button-secondary:active,
+    .ins-buttons.button-secondary.pressed {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .ins-buttons.button-primary:hover,
+    .ins-buttons.button-secondary:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    .ins-buttons.button-primary:disabled,
+    .ins-buttons.button-secondary:disabled {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-muted) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Inspire / Bulk Hold Modals
+   -------------------------------------------------------------------------- */
+    .inspire-custom-modal .modal-content,
+    .bulk-hold-modal .modal-content {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Upload Image Container
+   -------------------------------------------------------------------------- */
+    .upload-image-container .dropdown,
+    .upload-image-container .dropdown .color-container,
+    .upload-image-container .overlay-container,
+    .upload-image-container .upload-image-button {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .upload-image-container .dropdown .color-container:hover {
+        background-color: var(--dark-bg-hover) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Bookshelf Components
+   -------------------------------------------------------------------------- */
+    .bookshelf,
+    .bookshelf-content,
+    .bookshelf-content-wrapper,
+    .bookshelf-work-area {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    .bookshelf-title,
+    .bookshelf-title-name {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .bookshelf-nav-link,
+    .bookshelf-nav-link-content {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .bookshelf-nav-link:hover,
+    .bookshelf-nav-link.active {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .checkout-card-material-type,
+    .checkout-card-info-title,
+    .checkout-card-info-value {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Account Components
+   -------------------------------------------------------------------------- */
+    .account-card-cover-container,
+    .account-tab-content,
+    .account-tab-header {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .account-tab-label {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Breadcrumbs
+   -------------------------------------------------------------------------- */
+    .breadcrumb {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    .breadcrumb-item {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .breadcrumb-item.active {
+        color: var(--dark-text-muted) !important;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--dark-text-muted) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Pagination
+   -------------------------------------------------------------------------- */
+    .page-link {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-link-color) !important;
+    }
+
+    .page-link:hover {
+        background-color: var(--dark-bg-hover) !important;
+        color: var(--dark-link-hover) !important;
+    }
+
+    .page-item.active .page-link {
+        background-color: var(--dark-brand-flint) !important;
+        border-color: var(--dark-brand-flint) !important;
+        color: #ffffff !important;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: var(--dark-bg-tertiary) !important;
+        color: var(--dark-text-muted) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Switch / Toggle Buttons
+   -------------------------------------------------------------------------- */
+    .switch-button .slider {
+        background-color: var(--dark-bg-tertiary) !important;
+    }
+
+    .switch-button .slider::before {
+        background-color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Popover Header
+   -------------------------------------------------------------------------- */
+    .popover-header {
+        background-color: var(--dark-bg-tertiary) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .bs-popover-bottom .popover-header::before,
+    .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
+        border-bottom-color: var(--dark-bg-tertiary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Custom Select / Form Controls
+   -------------------------------------------------------------------------- */
+    .custom-select,
+    .custom-file-label,
+    .custom-control-label::before {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mark / Highlight
+   -------------------------------------------------------------------------- */
+    mark {
+        background-color: rgba(251, 191, 36, 0.3) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Generic Input Types
+   -------------------------------------------------------------------------- */
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    textarea,
+    select {
+        background-color: var(--dark-bg-input) !important;
+        border-color: var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="search"]:focus,
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="url"]:focus,
+    input[type="password"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--dark-brand-flint) !important;
+        box-shadow: 0 0 0 0.2rem rgba(122, 158, 194, 0.25) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Nav Tabs Active State
+   -------------------------------------------------------------------------- */
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+        background-color: var(--dark-bg-card) !important;
+        border-color: var(--dark-border-color) var(--dark-border-color) var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Carousel Indicators
+   -------------------------------------------------------------------------- */
+    .carousel-indicators li {
+        background-color: var(--dark-text-muted) !important;
+    }
+
+    .carousel-indicators .active {
+        background-color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Image Thumbnails
+   -------------------------------------------------------------------------- */
+    .img-thumbnail {
+        background-color: var(--dark-bg-tertiary) !important;
+        border-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   MDC Data Table
+   -------------------------------------------------------------------------- */
+    .mdc-data-table,
+    .mdc-data-table__header-cell {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-data-table__header-cell,
+    .mdc-data-table__pagination-total,
+    .mdc-data-table__pagination-rows-per-page-label,
+    .mdc-data-table__cell {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-data-table {
+        border-color: var(--dark-border-color) !important;
+    }
+
+    .mdc-data-table__pagination {
+        border-top-color: var(--dark-border-color) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   MDC List Items
+   -------------------------------------------------------------------------- */
+    .mdc-list-item__primary-text {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .mdc-list-item__secondary-text {
+        color: var(--dark-text-secondary) !important;
+    }
+
+    .mdc-list-item__overline-text,
+    .mdc-list-item__end {
+        color: var(--dark-text-muted) !important;
+    }
+
+    .mdc-deprecated-list-group__subheader {
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   MDC Menu Surface
+   -------------------------------------------------------------------------- */
+    .mdc-menu-surface {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    /* --------------------------------------------------------------------------
+   Mat Tab Header Pagination
+   -------------------------------------------------------------------------- */
+    .mat-mdc-tab-header-pagination-chevron {
+        border-color: var(--dark-text-primary) !important;
+    }
+
+    /* ==========================================================================
+   PRINT STYLES (disable dark mode for printing)
+   ========================================================================== */
+    @media print {
+        *,
+        *::before,
+        *::after {
+            background-color: white !important;
+            color: black !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        a {
+            color: #000 !important;
+            text-decoration: underline !important;
+        }
+    }
+}
