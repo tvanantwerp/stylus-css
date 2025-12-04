@@ -1262,6 +1262,7 @@
     -------------------------------------------------------------------------- */
     [class*="preview"],
     [class*="quick-look"],
+    [class*="quick-view"],
     [class*="hover-card"],
     [class*="item-preview"],
     [class*="book-preview"],
@@ -1623,6 +1624,14 @@
         background-color: var(--dark-bg-hover) !important;
         border-color: var(--dark-border-color) !important;
         color: var(--dark-text-primary) !important;
+    }
+
+    button.quick-view__link-user-name {
+        display: block;
+        height: auto;
+        padding: 0.5rem !important;
+        word-wrap: normal;
+        white-space: normal;
     }
 
     /* --------------------------------------------------------------------------
