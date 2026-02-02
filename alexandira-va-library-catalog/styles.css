@@ -9,8 +9,10 @@
 @license        CC-BY-NC-SA-4.0
 @preprocessor   stylus
 ==/UserStyle== */
-@-moz-document url-prefix("https://alexandria.na5.iiivega.com")
-{
+@-moz-document domain("alexandria.na5.iiivega.com") {
+    /* ==========================================================================
+    Alexandria Library Catalog - Dark Mode for Stylus
+    ========================================================================== */
     /* --------------------------------------------------------------------------
     CSS Custom Properties (for easy customization)
     -------------------------------------------------------------------------- */
@@ -1386,7 +1388,7 @@
     -------------------------------------------------------------------------- */
     .close,
     .btn-close,
-    [class*="close-button"],
+    [class*="close-"],
     [aria-label="Close"] {
         color: var(--dark-text-primary) !important;
         opacity: 0.8 !important;
@@ -1466,22 +1468,17 @@
     /* --------------------------------------------------------------------------
     Search Bar Components
     -------------------------------------------------------------------------- */
-    .search-bar,
+    .search-bar:not(app-search-bar),
     .search-bar-container,
     .search-bar--box,
-    [class*="search-bar"] {
-        background-color: var(--dark-bg-input) !important;
+    [class*="search-bar"]:not(app-search-bar) {
         border-color: var(--dark-border-color) !important;
         color: var(--dark-text-primary) !important;
     }
 
     .search-bar--input,
     .search-compact-input,
-    .search-bar__reversed-small .search-bar--input {
-        background-color: var(--dark-bg-input) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
+    .search-bar__reversed-small .search-bar--input,
     .search-bar--clear-btn,
     .search-bar__reversed-small .search-bar--clear-btn {
         background-color: var(--dark-bg-input) !important;
@@ -1957,5 +1954,64 @@
             color: #000 !important;
             text-decoration: underline !important;
         }
+    }
+
+    /* whatever */
+    .dont-need-text,
+    .hold-card-info-title,
+    .hold-card-info-value,
+    .keep-reading-history {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .profile-expiration-message-body,
+    .page-title-button {
+        background-color: var(--dark-bg-card) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .profile-expiration-message {
+        border-color: var(--dark-text-primary) !important;
+    }
+
+    .bookshelf-item-title {
+        color: var(--dark-text-primary) !important;
+    }
+
+    .search-bar--btn {
+        box-shadow: none !important;
+    }
+
+    .all-links-button-icon,
+    .all-links-button-text {
+        color: var(--dark-link-color) !important;
+    }
+
+    .all-links-button:hover {
+        background-color: var(--dark-bg-hover) !important;
+        box-shadow: inset 0 0 0 1px #535862;
+    }
+
+    aside.content {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    aside.content a.custom-link:hover {
+        background-color: var(--dark-bg-card) !important;
+    }
+
+    .bookshelf {
+        border-top: 1px solid var(--dark-border-color) !important;
+    }
+
+    .expand-button {
+        background-color: var(--dark-bg-card) !important;
+        border: 1px solid var(--dark-border-color) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    .facet-header:hover {
+        background-color: var(--dark-bg-hover) !important;
+        border-radius: 0 !important;
     }
 }
