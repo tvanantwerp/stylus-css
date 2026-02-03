@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Alexandria VA Library Catalog Dark Mode
 @description    Adds a dark mode for the Alexandria, VA library's catalog website
-@namespace      tvanantwerp
+@namespace      github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @author         Tom VanAntwerp
 @version        1.0.0
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
@@ -9,57 +9,100 @@
 @license        CC-BY-NC-SA-4.0
 @preprocessor   stylus
 ==/UserStyle== */
+
+/* --------------------------------------------------------------------------
+CSS Custom Properties (for easy customization)
+-------------------------------------------------------------------------- */
+:root {
+    --dark-bg-primary: #1a1a2e;
+    --dark-bg-secondary: #16213e;
+    --dark-bg-tertiary: #202040;
+    --dark-bg-card: #252542;
+    --dark-bg-input: #2a2a4a;
+    --dark-bg-hover: #303055;
+
+    --dark-text-primary: #e8e8e8;
+    --dark-text-secondary: #b0b0b0;
+    --dark-text-muted: #888899;
+
+    --dark-border-color: #3a3a5a;
+    --dark-border-light: #4a4a6a;
+
+    --dark-link-color: #6db3f2;
+    --dark-link-hover: #8ec5f6;
+
+    --dark-brand-flint: #7a9ec2;
+    --dark-brand-flint-hover: #93b5d4;
+
+    --dark-success: #4ade80;
+    --dark-danger: #f87171;
+    --dark-warning: #fbbf24;
+    --dark-info: #38bdf8;
+
+    /* MDC Theme Variables Override */
+    --mdc-theme-surface: var(--dark-bg-card) !important;
+    --mdc-theme-on-surface: var(--dark-text-primary) !important;
+    --mdc-theme-background: var(--dark-bg-primary) !important;
+    --mdc-theme-text-primary-on-background: var(--dark-text-primary) !important;
+    --mdc-theme-text-secondary-on-background: var(
+        --dark-text-secondary
+    ) !important;
+    --mdc-theme-text-hint-on-background: var(--dark-text-muted) !important;
+    --mdc-theme-text-disabled-on-background: var(--dark-text-muted) !important;
+    --mdc-theme-text-icon-on-background: var(--dark-text-secondary) !important;
+}
+
+@-moz-document domain("alexlibraryva.org") {
+    /* --------------------------------------------------------------------------
+    Base / Global
+    -------------------------------------------------------------------------- */
+    html,
+    body,
+    .content:not(#navbar) {
+        background-color: var(--dark-bg-primary) !important;
+        color: var(--dark-text-primary) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .headingtext {
+        color: var(--dark-text-primary) !important;
+    }
+
+    p,
+    span,
+    div,
+    li,
+    td,
+    th,
+    label {
+        color: var(--dark-text-primary);
+    }
+
+    .widget,
+    .widgetbody {
+        background-color: var(--dark-bg-primary) !important;
+    }
+
+    ul.nav > li > a {
+        border-radius: 0 !important;
+    }
+}
+
 @-moz-document domain("alexandria.na5.iiivega.com") {
     /* ==========================================================================
     Alexandria Library Catalog - Dark Mode for Stylus
     ========================================================================== */
-    /* --------------------------------------------------------------------------
-    CSS Custom Properties (for easy customization)
-    -------------------------------------------------------------------------- */
-    :root {
-        --dark-bg-primary: #1a1a2e;
-        --dark-bg-secondary: #16213e;
-        --dark-bg-tertiary: #202040;
-        --dark-bg-card: #252542;
-        --dark-bg-input: #2a2a4a;
-        --dark-bg-hover: #303055;
-
-        --dark-text-primary: #e8e8e8;
-        --dark-text-secondary: #b0b0b0;
-        --dark-text-muted: #888899;
-
-        --dark-border-color: #3a3a5a;
-        --dark-border-light: #4a4a6a;
-
-        --dark-link-color: #6db3f2;
-        --dark-link-hover: #8ec5f6;
-
-        --dark-brand-flint: #7a9ec2;
-        --dark-brand-flint-hover: #93b5d4;
-
-        --dark-success: #4ade80;
-        --dark-danger: #f87171;
-        --dark-warning: #fbbf24;
-        --dark-info: #38bdf8;
-
-        /* MDC Theme Variables Override */
-        --mdc-theme-surface: var(--dark-bg-card) !important;
-        --mdc-theme-on-surface: var(--dark-text-primary) !important;
-        --mdc-theme-background: var(--dark-bg-primary) !important;
-        --mdc-theme-text-primary-on-background: var(
-            --dark-text-primary
-        ) !important;
-        --mdc-theme-text-secondary-on-background: var(
-            --dark-text-secondary
-        ) !important;
-        --mdc-theme-text-hint-on-background: var(--dark-text-muted) !important;
-        --mdc-theme-text-disabled-on-background: var(
-            --dark-text-muted
-        ) !important;
-        --mdc-theme-text-icon-on-background: var(
-            --dark-text-secondary
-        ) !important;
-    }
 
     /* --------------------------------------------------------------------------
     Base / Global
