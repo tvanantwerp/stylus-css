@@ -3,7 +3,7 @@
 @description    Adds a dark mode for the Alexandria, VA library's catalog website
 @namespace      github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @author         Tom VanAntwerp
-@version        1.0.0
+@version        1.1.0
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
@@ -11,10 +11,924 @@
 
 /* CSS Custom Properties (for easy customization) */
 :root {
+    --dm-bg: #1a1a1a;
+    --dm-bg-surface: #252525;
+    --dm-bg-elevated: #2e2e2e;
+    --dm-bg-hover: #383838;
+    --dm-text: #e0e0e0;
+    --dm-text-muted: #a0a0a0;
+    --dm-link: #7ec8e3;
+    --dm-link-hover: #a8dcf0;
+    --dm-accent-teal: #4dd9c8;
+    --dm-accent-purple: #c77dba;
+    --dm-accent-red: #e47272;
+    --dm-accent-yellow: #f0d060;
+    --dm-accent-orange: #e8855a;
+    --dm-border: #3a3a3a;
+    --dm-available: #5cbf5c;
+    --dm-unavailable: #e06060;
 }
 
 @-moz-document domain("alexlibraryva.org") {
+    /* ========== BASE ========== */
+    html {
+        background-color: #1a1a1a;
+        color-scheme: dark;
+    }
+
+    body {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* Main content area — the biggest white block */
+    #body,
+    .content,
+    .content.default {
+        background-color: var(--dm-bg) !important;
+    }
+
+    /* ========== TEXT ========== */
+    p,
+    span,
+    div,
+    li,
+    td,
+    th,
+    label,
+    strong,
+    em {
+        color: var(--dm-text) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--dm-text) !important;
+    }
+
+    .text-muted,
+    .help-block,
+    small,
+    .small {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== LINKS ========== */
+    a {
+        color: var(--dm-link) !important;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--dm-link-hover) !important;
+    }
+
+    a.skip-main,
+    .amh-block.amh-text a {
+        color: var(--dm-accent-purple) !important;
+    }
+
+    .amh-block a[href*="facebook"],
+    .amh-block a[href*="instagram"],
+    .amh-block a[href*="youtube"],
+    .amh-block a[href*="flickr"],
+    .amh-block a[href*="bsky"] {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    /* ========== NAVIGATION ========== */
+    .navbar.yamm {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .navbar.yamm a {
+        color: var(--dm-text) !important;
+    }
+
+    .navbar.yamm a:hover,
+    .navbar.yamm a:focus {
+        color: var(--dm-link-hover) !important;
+    }
+
+    .navbar.yamm .current,
+    .navbar.yamm .dropdown-toggle.js-activated {
+        color: #ffffff !important;
+    }
+
+    .dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .dropdown-menu a {
+        color: var(--dm-text) !important;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BRAND ACCENT BLOCKS ========== */
+    /* White text on accent backgrounds should stay white */
+    .amh-row .amh-content {
+        color: #ffffff !important;
+    }
+
+    .amh-row .amh-content span,
+    .amh-row .amh-content p,
+    .amh-row .amh-content a,
+    .amh-row .amh-content h1,
+    .amh-row .amh-content h2,
+    .amh-row .amh-content h3,
+    .amh-row .amh-content h4,
+    .amh-row .amh-content div,
+    .amh-row .amh-content strong {
+        color: #ffffff !important;
+    }
+
+    /* Desaturate accent background blocks for dark mode */
+    .amh-row[style*="background-color: rgb(0, 172, 160)"],
+    .amh-row[style*="background-color:#00aca0"],
+    .amh-content[style*="background-color: rgb(0, 172, 160)"],
+    .amh-content[style*="background-color:#00aca0"] {
+        background-color: #0a8a7e !important;
+    }
+
+    .amh-row[style*="background-color: rgb(236, 51, 46)"],
+    .amh-row[style*="background-color:#ec332e"],
+    .amh-content[style*="background-color: rgb(236, 51, 46)"],
+    .amh-content[style*="background-color:#ec332e"] {
+        background-color: #a83030 !important;
+    }
+
+    .amh-row[style*="background-color: rgb(252, 185, 49)"],
+    .amh-row[style*="background-color:#fcb931"],
+    .amh-content[style*="background-color: rgb(252, 185, 49)"],
+    .amh-content[style*="background-color:#fcb931"] {
+        background-color: #b8891a !important;
+    }
+
+    .amh-row[style*="background-color: rgb(175, 36, 135)"],
+    .amh-row[style*="background-color:#af2487"],
+    .amh-content[style*="background-color: rgb(175, 36, 135)"],
+    .amh-content[style*="background-color:#af2487"] {
+        background-color: #862068 !important;
+    }
+
+    /* ========== WIDGETS & CONTENT BLOCKS ========== */
+    .widget,
+    .widgetbody,
+    .dynamic-widget,
+    .widgetbody .content {
+        background-color: var(--dm-bg) !important;
+    }
+
+    /* .butts buttons (playlist links etc.) */
+    .butts {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== FORMS ========== */
+    input,
+    select,
+    textarea,
+    .form-control {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .btn,
+    .btn-default {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .btn:hover,
+    .btn-default:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .input-group-addon {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== EVENTS PAGE ========== */
+    .events,
+    .events-holder,
+    .events.bodysize {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .events-filter-details {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .events-option-dropdown {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .events-option-dropdown:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .eelisttime.headingtext {
+        color: var(--dm-text) !important;
+    }
+
+    .eelistgroup,
+    .eelisttags {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .eelist-changed-message {
+        color: var(--dm-accent-red) !important;
+    }
+
+    /* Calendar / date picker */
+    .datepicker {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .datepicker td,
+    .datepicker th {
+        color: var(--dm-text) !important;
+    }
+
+    .datepicker td.active.day,
+    .datepicker span.month.focused,
+    .datepicker span.year.active {
+        background-color: var(--dm-accent-teal) !important;
+        color: #1a1a1a !important;
+    }
+
+    .datepicker td.old,
+    .datepicker td.disabled {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== TABLES ========== */
+    table,
+    .table {
+        color: var(--dm-text) !important;
+    }
+
+    .table > thead > tr > th,
+    .table > tbody > tr > td {
+        border-color: var(--dm-border) !important;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* ========== MISC ELEMENTS ========== */
+    hr {
+        border-color: var(--dm-border) !important;
+    }
+
+    .panel {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .panel-heading {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .well {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .breadcrumb {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .breadcrumb > li + li::before {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .modal-content {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .modal-header,
+    .modal-footer {
+        border-color: var(--dm-border) !important;
+    }
+
+    .qtip {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== FOOTER ========== */
+    footer,
+    .amh-footer,
+    #footer {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* ========== VEGA SEARCH WIDGET (embedded) ========== */
+    .vega-search-widget,
+    [class*="vega"] {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* ========== COSMETIC ========== */
+    ::selection {
+        background-color: var(--dm-accent-teal);
+        color: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: var(--dm-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--dm-border);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-bg-hover);
+    }
+
+    img {
+        opacity: 0.9;
+    }
+
+    img:hover {
+        opacity: 1;
+    }
 }
 
 @-moz-document domain("alexandria.na5.iiivega.com") {
+    /* ========== BASE ========== */
+    html {
+        background-color: #1a1a1a;
+        color-scheme: dark;
+    }
+
+    body.mat-typography {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== TEXT ========== */
+    body.mat-typography p,
+    body.mat-typography span,
+    body.mat-typography div,
+    body.mat-typography label,
+    body.mat-typography li {
+        color: var(--dm-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== LINKS ========== */
+    a {
+        color: var(--dm-link) !important;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--dm-link-hover) !important;
+    }
+
+    a.author-name,
+    a.link.notranslate,
+    a.link.ng-star-inserted {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    a.location-link {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    /* ========== HEADER ========== */
+    .header,
+    .header.ng-star-inserted {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .header-bottom,
+    section.header-bottom {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    nav.custom-links {
+        border-color: var(--dm-border) !important;
+    }
+
+    .custom-link,
+    a.custom-link {
+        color: var(--dm-text) !important;
+    }
+
+    a.help-button {
+        color: var(--dm-text) !important;
+    }
+
+    .icon-library-help,
+    .icon-library-info,
+    .user-icon {
+        color: var(--dm-text-muted) !important;
+    }
+
+    a[href="/"] {
+        color: var(--dm-text) !important;
+    }
+
+    .custom-dropdown__toggle {
+        color: var(--dm-text) !important;
+    }
+
+    .custom-dropdown__toggle__triangle {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== SEARCH BAR ========== */
+    .search-bar--box {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .search-bar--input,
+    input.search-bar--input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .search-bar--input::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .search-bar--clear-btn {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
+    .search-bar--select,
+    .search-dropdown-menu,
+    .search-dropdown-menu.dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* Keep the orange-red search button */
+    .search-bar--btn,
+    .search-dropdown-toggle {
+        background-color: var(--dm-accent-orange) !important;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    main,
+    .search-content {
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== SEARCH RESULTS CARDS ========== */
+    .card,
+    .card.py-4,
+    div.card {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .card:hover {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .card__title {
+        color: var(--dm-text) !important;
+    }
+
+    .card__publication-info {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== AVAILABILITY LABELS ========== */
+    .available,
+    span.available,
+    .label-available {
+        color: var(--dm-available) !important;
+    }
+
+    .unavailable,
+    span.unavailable,
+    .checked-out {
+        color: var(--dm-unavailable) !important;
+    }
+
+    /* ========== FILTER SIDEBAR ========== */
+    aside,
+    aside.col-sm-5,
+    aside.col-md-4 {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .facet-count {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .input-label {
+        color: var(--dm-text) !important;
+    }
+
+    /* "More Formats" / "Less" toggle button */
+    .more-less-button,
+    button.more-less-button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .more-less-button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .expand-button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== VIEW TOGGLE ========== */
+    .view-toggle {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    button.mr-1,
+    button.mr-1.active {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== TABS ========== */
+    .tab-label,
+    a.tab-label,
+    a.tab-label.nav-link {
+        color: var(--dm-text) !important;
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    a.tab-label.nav-link.active,
+    a.tab-label.nav-link[aria-selected="true"] {
+        color: var(--dm-accent-teal) !important;
+        background-color: var(--dm-bg) !important;
+        border-top-color: var(--dm-accent-teal) !important;
+    }
+
+    .rollup-tabs-content {
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .rollup-tabs-content-card-header {
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== FORMS ========== */
+    input,
+    select,
+    textarea,
+    .form-control {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    input[type="checkbox"] + div,
+    input[type="checkbox"] + span {
+        color: var(--dm-text) !important;
+    }
+
+    .option-button-label {
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== DROPDOWN MENUS ========== */
+    .dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .dropdown-menu a,
+    .dropdown-menu button {
+        color: var(--dm-text) !important;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BUTTONS ========== */
+    .ins-buttons {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ins-buttons.no-border {
+        background-color: var(--dm-bg-surface) !important;
+        color: #ffffff !important;
+    }
+
+    a.ins-buttons.button-primary {
+        background-color: var(--dm-accent-teal) !important;
+        border-color: var(--dm-accent-teal) !important;
+        color: #1a1a1a !important;
+    }
+
+    .carousel-btn {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    a.resource-more {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== PAGINATOR ========== */
+    .paginator,
+    nav.paginator {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .paginator button,
+    .paginator a {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .paginator button:hover,
+    .paginator a:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BOOK DETAIL PAGE ========== */
+    .unbound_format {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .unbound_copyright {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .unbound_reviews_source {
+        color: var(--dm-text) !important;
+    }
+
+    .unbound_cover_area {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .unbound_lightbox {
+        color: var(--dm-link) !important;
+    }
+
+    .unbound_lookinside_toc_label {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* Reading level badges */
+    .unbound_readinglevel_title {
+        color: #ffffff !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_lexile {
+        color: var(--dm-accent-purple) !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_booklevel {
+        color: var(--dm-available) !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_age {
+        color: var(--dm-link) !important;
+    }
+
+    .unbound_readinglevel_links,
+    .unbound_readinglevel_link {
+        color: inherit !important;
+    }
+
+    .unbound_similar_display_subtype {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .unbound_seriesrec_viewbtn {
+        background-color: var(--dm-bg-elevated) !important;
+        color: #ffffff !important;
+    }
+
+    .editions-search-container,
+    .search-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .app-button,
+    button.dropdown-toggle.app-button {
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== FOOTER ========== */
+    footer,
+    footer.ng-star-inserted {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    footer a {
+        color: var(--dm-link) !important;
+    }
+
+    /* ========== HOMEPAGE CAROUSEL ========== */
+    .preview {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
+    .not-found-words {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== USER PANEL (logged in) ========== */
+    .user-tools {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__btn-close {
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__icon-user {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__link-user-name {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    .quick-view__stats-number {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    .quick-view__stats-entity {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__info-section {
+        border-color: var(--dm-border) !important;
+    }
+
+    .quick-view__info-title {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__info-value {
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__button,
+    button.quick-view__button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    button.quick-view__button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BOOKMARK & SAVED SEARCHES SIDEBARS ========== */
+    .ap-bookmark-sidebar,
+    .ap-bookmark-sidebar--list,
+    app-ap-bookmark,
+    app-ap-saved-search {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark-sidebar-header,
+    .ap-saves-search-sidebar-header-title {
+        color: var(--dm-text) !important;
+    }
+
+    .ap-bookmark-sidebar .actions-section {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark-sidebar .actions-section button[disabled] {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== PENDO / THIRD PARTY ========== */
+    ._pendo-badge {
+        background-color: var(--dm-bg-elevated) !important;
+        opacity: 0.7;
+    }
+
+    /* OneTrust cookie banner */
+    .onetrust-pc-dark-filter {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    #onetrust-consent-sdk .onetrust-pc-dark-filter ~ div,
+    #onetrust-consent-sdk [class*="onetrust"] {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .MuiButtonBase-root {
+        color: var(--dm-link) !important;
+    }
+
+    /* ========== COSMETIC ========== */
+    ::selection {
+        background-color: var(--dm-accent-teal);
+        color: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: var(--dm-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--dm-border);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-bg-hover);
+    }
+
+    img {
+        opacity: 0.9;
+    }
+
+    img:hover {
+        opacity: 1;
+    }
+
+    a[href*="searchType=everything"] {
+        color: var(--dm-text-muted) !important;
+    }
+
+    button[class*="tour"] {
+        background-color: var(--dm-accent-orange) !important;
+        color: #ffffff !important;
+    }
 }
