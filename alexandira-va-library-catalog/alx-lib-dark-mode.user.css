@@ -3,7 +3,7 @@
 @description    Adds a dark mode for the Alexandria, VA library's catalog website
 @namespace      github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @author         Tom VanAntwerp
-@version        1.1.0
+@version        1.2.0
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
@@ -491,6 +491,14 @@
         color: var(--dm-text-muted) !important;
     }
 
+    /* ========== COMPACT SEARCH (portal nav) ========== */
+    .search-compact-input,
+    input.search-compact-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
     /* ========== SEARCH BAR ========== */
     .search-bar--box {
         background-color: var(--dm-bg-elevated) !important;
@@ -807,6 +815,114 @@
     button.dropdown-toggle.app-button:hover,
     button.dropdown-toggle.app-button:focus {
         background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== PORTAL (ACCOUNT) PAGE - Material UI Components ========== */
+
+    /* Sidebar nav panel — the box containing all nav buttons */
+    account-portal-custom-element
+        .MuiBox-root:has(> .MuiBox-root[role="button"]) {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* Active nav item (highlighted in light mode with gray bg) */
+    account-portal-custom-element .MuiBox-root.css-121zllt {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* All portal nav item text */
+    account-portal-custom-element .MuiBox-root[role="button"] {
+        color: var(--dm-text) !important;
+    }
+
+    /* Count badges (64, 0, 1, etc.) inside nav items */
+    account-portal-custom-element .MuiTypography-root > .MuiBox-root {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* All MUI Typography text in portal */
+    account-portal-custom-element .MuiTypography-root {
+        color: var(--dm-text) !important;
+    }
+
+    /* Sort by */
+    .MuiMenu-list.css-r8u8y9 {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* Checkout / hold / history item row cards */
+    account-portal-custom-element .MuiBox-root.css-mmiom1,
+    account-portal-custom-element .MuiBox-root.css-1j0iju0,
+    account-portal-custom-element .MuiBox-root.css-ni3txr {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Select native inputs and search field in portal */
+    account-portal-custom-element .MuiSelect-nativeInput,
+    account-portal-custom-element input.page-builder-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Select displayed value text */
+    account-portal-custom-element .MuiSelect-select {
+        color: var(--dm-text) !important;
+    }
+
+    /* MUI OutlinedInput border (fieldset outline) */
+    account-portal-custom-element .MuiOutlinedInput-notchedOutline {
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Tab labels */
+    account-portal-custom-element .MuiTab-root {
+        color: var(--dm-text-muted) !important;
+    }
+
+    account-portal-custom-element .MuiTab-root.Mui-selected {
+        color: var(--dm-text) !important;
+    }
+
+    /* MUI Select dropdown arrow */
+    account-portal-custom-element .MuiSelect-icon {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* MUI SVG icons in portal (non-button) */
+    account-portal-custom-element .MuiSvgIcon-root {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* Action buttons: text variant (Select All, Place Holds, Delete, etc.) */
+    account-portal-custom-element .MuiButton-text {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* Action buttons: outlined variant (filter toggles, etc.) */
+    account-portal-custom-element .MuiButton-outlined {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI text input (search box inside portal content) */
+    account-portal-custom-element .MuiInputBase-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* "All / Available" filter toggle group */
+    account-portal-custom-element .MuiBox-root.css-1l9itm5 {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* Bookmark / booklist item row cards */
+    account-portal-custom-element .css-mpryks {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
     }
 
     /* ========== FOOTER ========== */
