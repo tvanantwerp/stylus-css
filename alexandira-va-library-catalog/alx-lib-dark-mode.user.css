@@ -3,63 +3,62 @@
 @description    Adds a dark mode for the Alexandria, VA library's catalog website
 @namespace      github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @author         Tom VanAntwerp
-@version        1.0.0
+@version        1.2.0
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
 ==/UserStyle== */
 
-/* --------------------------------------------------------------------------
-CSS Custom Properties (for easy customization)
--------------------------------------------------------------------------- */
+/* CSS Custom Properties (for easy customization) */
 :root {
-    --dark-bg-primary: #1a1a2e;
-    --dark-bg-secondary: #16213e;
-    --dark-bg-tertiary: #202040;
-    --dark-bg-card: #252542;
-    --dark-bg-input: #2a2a4a;
-    --dark-bg-hover: #303055;
-
-    --dark-text-primary: #e8e8e8;
-    --dark-text-secondary: #b0b0b0;
-    --dark-text-muted: #888899;
-
-    --dark-border-color: #3a3a5a;
-    --dark-border-light: #4a4a6a;
-
-    --dark-link-color: #6db3f2;
-    --dark-link-hover: #8ec5f6;
-
-    --dark-brand-flint: #7a9ec2;
-    --dark-brand-flint-hover: #93b5d4;
-
-    --dark-success: #4ade80;
-    --dark-danger: #f87171;
-    --dark-warning: #fbbf24;
-    --dark-info: #38bdf8;
-
-    /* MDC Theme Variables Override */
-    --mdc-theme-surface: var(--dark-bg-card) !important;
-    --mdc-theme-on-surface: var(--dark-text-primary) !important;
-    --mdc-theme-background: var(--dark-bg-primary) !important;
-    --mdc-theme-text-primary-on-background: var(--dark-text-primary) !important;
-    --mdc-theme-text-secondary-on-background: var(
-        --dark-text-secondary
-    ) !important;
-    --mdc-theme-text-hint-on-background: var(--dark-text-muted) !important;
-    --mdc-theme-text-disabled-on-background: var(--dark-text-muted) !important;
-    --mdc-theme-text-icon-on-background: var(--dark-text-secondary) !important;
+    --dm-bg: #1a1a1a;
+    --dm-bg-surface: #252525;
+    --dm-bg-elevated: #2e2e2e;
+    --dm-bg-hover: #383838;
+    --dm-text: #e0e0e0;
+    --dm-text-muted: #a0a0a0;
+    --dm-link: #7ec8e3;
+    --dm-link-hover: #a8dcf0;
+    --dm-accent-teal: #4dd9c8;
+    --dm-accent-purple: #c77dba;
+    --dm-accent-red: #e47272;
+    --dm-accent-yellow: #f0d060;
+    --dm-accent-orange: #e8855a;
+    --dm-border: #3a3a3a;
+    --dm-available: #5cbf5c;
+    --dm-unavailable: #e06060;
 }
 
 @-moz-document domain("alexlibraryva.org") {
-    /* --------------------------------------------------------------------------
-    Base / Global
-    -------------------------------------------------------------------------- */
-    html,
-    body,
-    .content:not(#navbar) {
-        background-color: var(--dark-bg-primary) !important;
-        color: var(--dark-text-primary) !important;
+    /* ========== BASE ========== */
+    html {
+        background-color: #1a1a1a;
+        color-scheme: dark;
+    }
+
+    body {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* Main content area — the biggest white block */
+    #body,
+    .content,
+    .content.default {
+        background-color: var(--dm-bg) !important;
+    }
+
+    /* ========== TEXT ========== */
+    p,
+    span,
+    div,
+    li,
+    td,
+    th,
+    label,
+    strong,
+    em {
+        color: var(--dm-text) !important;
     }
 
     h1,
@@ -67,1993 +66,1601 @@ CSS Custom Properties (for easy customization)
     h3,
     h4,
     h5,
-    h6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6,
-    .headingtext {
-        color: var(--dark-text-primary) !important;
+    h6 {
+        color: var(--dm-text) !important;
     }
 
-    p,
-    span,
-    div,
-    li,
-    td,
-    th,
-    label {
-        color: var(--dark-text-primary);
+    .text-muted,
+    .help-block,
+    small,
+    .small {
+        color: var(--dm-text-muted) !important;
     }
 
-    .widget,
-    .widgetbody {
-        background-color: var(--dark-bg-primary) !important;
-    }
-
-    ul.nav > li > a {
-        border-radius: 0 !important;
-    }
-}
-
-@-moz-document domain("alexandria.na5.iiivega.com") {
-    /* ==========================================================================
-    Alexandria Library Catalog - Dark Mode for Stylus
-    ========================================================================== */
-
-    /* --------------------------------------------------------------------------
-    Base / Global
-    -------------------------------------------------------------------------- */
-    html,
-    body {
-        background-color: var(--dark-bg-primary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Links
-    -------------------------------------------------------------------------- */
+    /* ========== LINKS ========== */
     a {
-        color: var(--dark-link-color) !important;
+        color: var(--dm-link) !important;
     }
 
     a:hover,
     a:focus {
-        color: var(--dark-link-hover) !important;
+        color: var(--dm-link-hover) !important;
     }
 
-    /* Brand-colored links (author names, library links, etc.) */
-    a[class*="flint"],
-    .text-flint a,
-    a.text-flint {
-        color: var(--dark-brand-flint) !important;
+    a.skip-main,
+    .amh-block.amh-text a {
+        color: var(--dm-accent-purple) !important;
     }
 
-    a[class*="flint"]:hover,
-    .text-flint a:hover {
-        color: var(--dark-brand-flint-hover) !important;
+    .amh-block a[href*="facebook"],
+    .amh-block a[href*="instagram"],
+    .amh-block a[href*="youtube"],
+    .amh-block a[href*="flickr"],
+    .amh-block a[href*="bsky"] {
+        color: var(--dm-accent-teal) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Header / Navigation
-    -------------------------------------------------------------------------- */
-    header,
-    .header,
-    nav,
-    .navbar,
-    .navbar-light,
-    [class*="header"],
-    [class*="nav-bar"],
-    [class*="top-bar"] {
-        background-color: var(--dark-bg-secondary) !important;
-        border-color: var(--dark-border-color) !important;
+    /* ========== NAVIGATION ========== */
+    .navbar.yamm {
+        background-color: var(--dm-bg-surface) !important;
     }
 
-    .navbar-light .navbar-brand,
-    .navbar-light .navbar-nav .nav-link,
-    .navbar-light .navbar-text {
-        color: var(--dark-text-primary) !important;
+    .navbar.yamm a {
+        color: var(--dm-text) !important;
     }
 
-    .navbar-light .navbar-nav .nav-link:hover,
-    .navbar-light .navbar-nav .nav-link:focus {
-        color: var(--dark-link-color) !important;
+    .navbar.yamm a:hover,
+    .navbar.yamm a:focus {
+        color: var(--dm-link-hover) !important;
     }
 
-    /* Secondary navigation bar */
-    [class*="menu-bar"],
-    [class*="sub-nav"],
-    .bg-light {
-        background-color: var(--dark-bg-tertiary) !important;
+    .navbar.yamm .current,
+    .navbar.yamm .dropdown-toggle.js-activated {
+        color: #ffffff !important;
     }
 
-    nav a:hover {
-        background-color: var(--dark-bg-hover) !important;
+    .dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Cards and Content Containers
-    -------------------------------------------------------------------------- */
-    .card,
-    .card-body,
-    .card-header,
-    .card-footer,
-    [class*="content-card"],
-    [class*="detail-card"],
-    [class*="resource-card"],
-    [class*="item-card"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
+    .dropdown-menu a {
+        color: var(--dm-text) !important;
     }
 
-    .gradient {
-        background-color: var(--dark-bg-primary) !important;
-        background-image: none !important;
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    /* Main content areas */
-    main,
-    .main,
-    [class*="main-content"],
-    [class*="content-area"],
-    [class*="page-content"],
-    article,
-    section {
-        background-color: var(--dark-bg-primary) !important;
+    /* ========== BRAND ACCENT BLOCKS ========== */
+    /* White text on accent backgrounds should stay white */
+    .amh-row .amh-content {
+        color: #ffffff !important;
     }
 
-    /* Resource/Book detail sections */
-    [class*="resource-detail"],
-    [class*="book-detail"],
-    [class*="item-detail"],
-    [class*="bib-item"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
+    .amh-row .amh-content span,
+    .amh-row .amh-content p,
+    .amh-row .amh-content a,
+    .amh-row .amh-content h1,
+    .amh-row .amh-content h2,
+    .amh-row .amh-content h3,
+    .amh-row .amh-content h4,
+    .amh-row .amh-content div,
+    .amh-row .amh-content strong {
+        color: #ffffff !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Text Colors
-    -------------------------------------------------------------------------- */
+    /* Desaturate accent background blocks for dark mode */
+    .amh-row[style*="background-color: rgb(0, 172, 160)"],
+    .amh-row[style*="background-color:#00aca0"],
+    .amh-content[style*="background-color: rgb(0, 172, 160)"],
+    .amh-content[style*="background-color:#00aca0"] {
+        background-color: #0a8a7e !important;
+    }
+
+    .amh-row[style*="background-color: rgb(236, 51, 46)"],
+    .amh-row[style*="background-color:#ec332e"],
+    .amh-content[style*="background-color: rgb(236, 51, 46)"],
+    .amh-content[style*="background-color:#ec332e"] {
+        background-color: #a83030 !important;
+    }
+
+    .amh-row[style*="background-color: rgb(252, 185, 49)"],
+    .amh-row[style*="background-color:#fcb931"],
+    .amh-content[style*="background-color: rgb(252, 185, 49)"],
+    .amh-content[style*="background-color:#fcb931"] {
+        background-color: #b8891a !important;
+    }
+
+    .amh-row[style*="background-color: rgb(175, 36, 135)"],
+    .amh-row[style*="background-color:#af2487"],
+    .amh-content[style*="background-color: rgb(175, 36, 135)"],
+    .amh-content[style*="background-color:#af2487"] {
+        background-color: #862068 !important;
+    }
+
+    /* ========== WIDGETS & CONTENT BLOCKS ========== */
+    .widget,
+    .widgetbody,
+    .dynamic-widget,
+    .widgetbody .content {
+        background-color: var(--dm-bg) !important;
+    }
+
+    /* .butts buttons (playlist links etc.) */
+    .butts {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== FORMS ========== */
+    input,
+    select,
+    textarea,
+    .form-control {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .btn,
+    .btn-default {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .btn:hover,
+    .btn-default:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .input-group-addon {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== EVENTS PAGE ========== */
+    .events,
+    .events-holder,
+    .events.bodysize {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .events-filter-details {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .events-option-dropdown {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .events-option-dropdown:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .eelisttime.headingtext {
+        color: var(--dm-text) !important;
+    }
+
+    .eelistgroup,
+    .eelisttags {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .eelist-changed-message {
+        color: var(--dm-accent-red) !important;
+    }
+
+    /* Calendar / date picker */
+    .datepicker {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .datepicker td,
+    .datepicker th {
+        color: var(--dm-text) !important;
+    }
+
+    .datepicker td.active.day,
+    .datepicker span.month.focused,
+    .datepicker span.year.active {
+        background-color: var(--dm-accent-teal) !important;
+        color: #1a1a1a !important;
+    }
+
+    .datepicker td.old,
+    .datepicker td.disabled {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== TABLES ========== */
+    table,
+    .table {
+        color: var(--dm-text) !important;
+    }
+
+    .table > thead > tr > th,
+    .table > tbody > tr > td {
+        border-color: var(--dm-border) !important;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* ========== MISC ELEMENTS ========== */
+    hr {
+        border-color: var(--dm-border) !important;
+    }
+
+    .panel {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .panel-heading {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .well {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .breadcrumb {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .breadcrumb > li + li::before {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .modal-content {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .modal-header,
+    .modal-footer {
+        border-color: var(--dm-border) !important;
+    }
+
+    .qtip {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== FOOTER ========== */
+    footer,
+    .amh-footer,
+    #footer {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* ========== VEGA SEARCH WIDGET (embedded) ========== */
+    .vega-search-widget,
+    [class*="vega"] {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* ========== COSMETIC ========== */
+    ::selection {
+        background-color: var(--dm-accent-teal);
+        color: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: var(--dm-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--dm-border);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-bg-hover);
+    }
+
+    img {
+        opacity: 0.9;
+    }
+
+    img:hover {
+        opacity: 1;
+    }
+}
+
+@-moz-document domain("alexandria.na5.iiivega.com") {
+    /* ========== BASE ========== */
+    html {
+        color-scheme: dark;
+        background-color: var(--dm-bg) !important;
+    }
+
+    div.MuiBox-root {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    body.mat-typography {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== TEXT ========== */
+    body.mat-typography p,
+    body.mat-typography span,
+    body.mat-typography div,
+    body.mat-typography label,
+    body.mat-typography li {
+        color: var(--dm-text);
+    }
+
     h1,
     h2,
     h3,
     h4,
     h5,
-    h6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-        color: var(--dark-text-primary) !important;
+    h6 {
+        color: var(--dm-text) !important;
     }
 
-    p,
-    span,
-    div,
-    li,
-    td,
-    th,
-    label {
-        color: var(--dark-text-primary);
+    /* ========== LINKS ========== */
+    a {
+        color: var(--dm-link) !important;
     }
 
-    .text-dark {
-        color: var(--dark-text-primary) !important;
+    a:hover,
+    a:focus {
+        color: var(--dm-link-hover) !important;
     }
 
-    .text-muted,
-    .text-secondary,
-    small,
-    .small,
-    [class*="subtitle"],
-    [class*="meta"],
-    [class*="info-text"] {
-        color: var(--dark-text-muted) !important;
+    a.author-name,
+    a.link.notranslate,
+    a.link.ng-star-inserted {
+        color: var(--dm-accent-teal) !important;
     }
 
-    .text-body {
-        color: var(--dark-text-primary) !important;
+    a.location-link {
+        color: var(--dm-accent-teal) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Buttons
-    -------------------------------------------------------------------------- */
-    /* Primary / Flint buttons */
-    .btn-primary,
-    .btn-flint,
-    [class*="btn-primary"],
-    [class*="btn-flint"] {
-        background-color: var(--dark-brand-flint) !important;
-        border-color: var(--dark-brand-flint) !important;
-        color: #1a1a2e !important;
+    /* ========== HEADER ========== */
+    .header,
+    .header.ng-star-inserted {
+        background-color: var(--dm-bg-surface) !important;
     }
 
-    .btn-primary:hover,
-    .btn-flint:hover,
-    [class*="btn-primary"]:hover,
-    [class*="btn-flint"]:hover {
-        background-color: var(--dark-brand-flint-hover) !important;
-        border-color: var(--dark-brand-flint-hover) !important;
+    .header-bottom,
+    section.header-bottom {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
     }
 
-    /* Outline buttons */
-    .btn-outline-primary,
-    .btn-outline-flint,
-    .btn-outline-secondary,
-    [class*="btn-outline"] {
-        background-color: transparent !important;
-        border-color: var(--dark-border-light) !important;
-        color: var(--dark-text-primary) !important;
+    nav.custom-links {
+        border-color: var(--dm-border) !important;
     }
 
-    .btn-outline-primary:hover,
-    .btn-outline-flint:hover,
-    .btn-outline-secondary:hover,
-    [class*="btn-outline"]:hover {
-        background-color: var(--dark-bg-hover) !important;
-        border-color: var(--dark-brand-flint) !important;
-        color: var(--dark-brand-flint) !important;
+    .custom-link,
+    a.custom-link {
+        color: var(--dm-text) !important;
     }
 
-    /* Light/Secondary buttons */
-    .btn-light,
-    .btn-secondary,
-    .search-container button {
-        background-color: var(--dark-bg-tertiary) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
+    .custom-link:focus,
+    a.custom-link:focus,
+    .custom-link:hover,
+    a.custom-link:hover {
+        background-color: var(--dm-bg-hover) !important;
+        color: var(--dm-text) !important;
     }
 
-    .btn-light:hover,
-    .btn-secondary:hover,
-    .search-container button:hover {
-        background-color: var(--dark-bg-hover) !important;
+    a.help-button {
+        color: var(--dm-text) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Forms and Inputs
-    -------------------------------------------------------------------------- */
-    input,
-    textarea,
-    select,
-    .form-control,
-    .form-select,
-    .custom-select,
-    [class*="search-input"],
-    [class*="text-input"] {
-        background-color: var(--dark-bg-input) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
+    a.help-button:focus,
+    a.help-button:hover,
+    .library-info-button:focus,
+    .library-info-button:hover {
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    input::placeholder,
-    textarea::placeholder,
-    .form-control::placeholder {
-        color: var(--dark-text-muted) !important;
+    .icon-library-help,
+    .icon-library-info,
+    .user-icon {
+        color: var(--dm-text-muted) !important;
     }
 
-    input:focus,
-    textarea:focus,
-    select:focus,
-    .form-control:focus {
-        background-color: var(--dark-bg-input) !important;
-        border-color: var(--dark-brand-flint) !important;
-        box-shadow: 0 0 0 0.2rem rgba(122, 158, 194, 0.25) !important;
+    #user-login-button:hover {
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    /* Search bar */
-    [class*="search-box"],
-    [class*="search-bar"],
-    [class*="search-form"] {
-        background-color: var(--dark-bg-input) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Tabs
-    -------------------------------------------------------------------------- */
-    .nav-tabs,
-    .nav-pills,
-    [class*="tab-list"],
-    [class*="tabs"] {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .nav-tabs .nav-link,
-    .nav-pills .nav-link,
-    [class*="tab-item"],
-    [class*="tab-link"] {
-        color: var(--dark-text-secondary) !important;
-        background-color: transparent !important;
-        border-color: transparent !important;
-    }
-
-    .nav-tabs .nav-link:hover,
-    .nav-pills .nav-link:hover {
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-light) !important;
-    }
-
-    .nav-tabs .nav-link.active,
-    .nav-pills .nav-link.active,
-    [class*="tab-item"].active,
-    [class*="tab-link"].active,
-    [class*="tab"][aria-selected="true"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Tables
-    -------------------------------------------------------------------------- */
-    table,
-    .table {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .table th,
-    .table td {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .table thead th {
-        background-color: var(--dark-bg-tertiary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .table-striped tbody tr:nth-of-type(odd) {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    .table-hover tbody tr:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Modals and Dialogs
-    -------------------------------------------------------------------------- */
-    .modal-content,
-    .modal-header,
-    .modal-body,
-    .modal-footer,
-    [class*="dialog"],
-    [class*="popup"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .modal-header,
-    .modal-footer {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Dropdowns
-    -------------------------------------------------------------------------- */
-    .dropdown-menu,
-    [class*="dropdown-list"],
-    [class*="menu-dropdown"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .dropdown-item,
-    .dropdown-menu a {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .dropdown-item:hover,
-    .dropdown-item:focus,
-    .dropdown-menu a:hover {
-        background-color: var(--dark-bg-hover) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .dropdown-divider {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    List Groups
-    -------------------------------------------------------------------------- */
-    .list-group-item,
-    [class*="list-item"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .list-group-item:hover,
-    .list-group-item-action:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .list-group-item.active {
-        background-color: var(--dark-brand-flint) !important;
-        border-color: var(--dark-brand-flint) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Badges and Labels
-    -------------------------------------------------------------------------- */
-    .badge,
-    [class*="badge"],
-    [class*="label"],
-    [class*="tag"] {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .badge-primary,
-    .badge-flint {
-        background-color: var(--dark-brand-flint) !important;
-        color: #1a1a2e !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Alerts / Status Colors
-    -------------------------------------------------------------------------- */
-    /* Success (available items) */
-    .text-success,
-    .alert-success,
-    [class*="available"],
-    [class*="success"] {
-        color: var(--dark-success) !important;
-    }
-
-    .bg-success,
-    .alert-success {
-        background-color: rgba(74, 222, 128, 0.15) !important;
-        border-color: var(--dark-success) !important;
-    }
-
-    /* Danger (unavailable items) */
-    .text-danger,
-    .alert-danger,
-    [class*="unavailable"],
-    [class*="error"] {
-        color: var(--dark-danger) !important;
-    }
-
-    .bg-danger,
-    .alert-danger {
-        background-color: rgba(248, 113, 113, 0.15) !important;
-        border-color: var(--dark-danger) !important;
-    }
-
-    /* Warning */
-    .text-warning,
-    .alert-warning {
-        color: var(--dark-warning) !important;
-    }
-
-    .bg-warning,
-    .alert-warning {
-        background-color: rgba(251, 191, 36, 0.15) !important;
-        border-color: var(--dark-warning) !important;
-    }
-
-    /* Info */
-    .text-info,
-    .alert-info {
-        color: var(--dark-info) !important;
-    }
-
-    .bg-info,
-    .alert-info {
-        background-color: rgba(56, 189, 248, 0.15) !important;
-        border-color: var(--dark-info) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Borders
-    -------------------------------------------------------------------------- */
-    .border,
-    .border-top,
-    .border-bottom,
-    .border-left,
-    .border-right,
-    [class*="border"] {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    hr {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Background Utilities
-    -------------------------------------------------------------------------- */
-    .bg-white {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .bg-light {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    .bg-dark {
-        background-color: var(--dark-bg-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Tooltips
-    -------------------------------------------------------------------------- */
-    .tippy-box,
-    .tooltip,
-    [class*="tooltip"] {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .tippy-arrow {
-        color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Scrollbar (Webkit browsers)
-    -------------------------------------------------------------------------- */
-    ::-webkit-scrollbar {
-        width: 12px;
-        height: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--dark-bg-secondary);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--dark-border-light);
-        border-radius: 6px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--dark-text-muted);
-    }
-
-    /* --------------------------------------------------------------------------
-    Library-Specific Elements (BiblioCommons / Alexandria)
-    -------------------------------------------------------------------------- */
-    /* Book cover containers */
-    [class*="cover-image"],
-    [class*="book-cover"],
-    [class*="jacket-image"],
-    [class*="thumbnail"] {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* Series carousel / "More in this Series" sections */
-    [class*="carousel"],
-    [class*="series"],
-    [class*="related-items"],
-    [class*="recommendations"] {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* Availability indicators */
-    [class*="availability"],
-    [class*="status-indicator"],
-    [class*="branch-availability"] {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    /* Edition information section */
-    [class*="edition"],
-    [class*="format-tab"],
-    [class*="format-panel"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* Holds/copies info */
-    [class*="holds"],
-    [class*="copies"] {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* Footer */
-    footer,
-    .footer,
-    [class*="footer"] {
-        background-color: var(--dark-bg-secondary) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    SVG Icons (invert for visibility)
-    -------------------------------------------------------------------------- */
-    svg:not([class*="logo"]):not([class*="brand"]) {
-        filter: brightness(0.9) invert(0.1);
-    }
-
-    /* Checkmark and X icons in availability - preserve their colors */
-    [class*="check"] svg,
-    [class*="success"] svg,
-    [class*="available"] svg {
-        filter: none !important;
-        color: var(--dark-success) !important;
-    }
-
-    [class*="times"] svg,
-    [class*="danger"] svg,
-    [class*="unavailable"] svg,
-    [class*="error"] svg {
-        filter: none !important;
-        color: var(--dark-danger) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Image Adjustments (optional - slightly dim bright images)
-    -------------------------------------------------------------------------- */
-    img:not([class*="logo"]):not([class*="brand"]):not([class*="cover"]):not(
-            [class*="avatar"]
-        ) {
-        opacity: 0.92;
-    }
-
-    /* --------------------------------------------------------------------------
-    Focus States (accessibility)
-    -------------------------------------------------------------------------- */
-    *:focus {
-        outline-color: var(--dark-brand-flint) !important;
-    }
-
-    *:focus-visible {
-        outline: 2px solid var(--dark-brand-flint) !important;
-        outline-offset: 2px;
-    }
-
-    /* ==========================================================================
-    ANGULAR MATERIAL / MDC COMPONENTS
-    ========================================================================== */
-    /* --------------------------------------------------------------------------
-    Mat Dialog / Modal
-    -------------------------------------------------------------------------- */
-    .mat-mdc-dialog-container,
-    .mat-dialog-container,
-    .cdk-dialog-container {
-        --mdc-dialog-container-color: var(--dark-bg-card) !important;
-        --mdc-dialog-with-divider-divider-color: var(
-            --dark-border-color
-        ) !important;
-        --mdc-dialog-subhead-color: var(--dark-text-primary) !important;
-        --mdc-dialog-supporting-text-color: var(
-            --dark-text-secondary
-        ) !important;
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-dialog-surface,
-    .mdc-dialog__surface {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Menu
-    -------------------------------------------------------------------------- */
-    .mat-mdc-menu-panel,
-    .mat-menu-panel,
-    .mdc-menu-surface {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-menu-item,
-    .mat-menu-item {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-menu-item:hover:not([disabled]),
-    .mat-mdc-menu-item.cdk-program-focused:not([disabled]),
-    .mat-mdc-menu-item.cdk-keyboard-focused:not([disabled]),
-    .mat-mdc-menu-item-highlighted:not([disabled]) {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .mat-mdc-menu-item .mat-icon-no-color,
-    .mat-mdc-menu-submenu-icon {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Card
-    -------------------------------------------------------------------------- */
-    .mat-mdc-card,
-    .mat-card {
-        --mdc-elevated-card-container-color: var(--dark-bg-card) !important;
-        --mdc-outlined-card-outline-color: var(--dark-border-color) !important;
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-card-subtitle,
-    .mat-card-subtitle {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Expansion Panel
-    -------------------------------------------------------------------------- */
-    .mat-expansion-panel {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-expansion-panel:not([class*="mat-elevation-z"]) {
-        box-shadow:
-            0 3px 1px -2px rgba(0, 0, 0, 0.4),
-            0 2px 2px rgba(0, 0, 0, 0.3),
-            0 1px 5px rgba(0, 0, 0, 0.2) !important;
-    }
-
-    .mat-expansion-panel
-        .mat-expansion-panel-header.cdk-keyboard-focused:not(
-            [aria-disabled="true"]
-        ),
-    .mat-expansion-panel
-        .mat-expansion-panel-header.cdk-program-focused:not(
-            [aria-disabled="true"]
-        ),
-    .mat-expansion-panel:not(.mat-expanded)
-        .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .mat-expansion-panel-header-title {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-expansion-panel-header-description,
-    .mat-expansion-indicator:after {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat List
-    -------------------------------------------------------------------------- */
-    .mat-mdc-list-base,
-    .mat-list-base,
-    .mat-nav-list,
-    .mat-selection-list {
-        --mdc-list-list-item-label-text-color: var(
-            --dark-text-primary
-        ) !important;
-        --mdc-list-list-item-supporting-text-color: var(
-            --dark-text-secondary
-        ) !important;
-        --mdc-list-list-item-leading-icon-color: var(
-            --dark-text-muted
-        ) !important;
-        --mdc-list-list-item-trailing-supporting-text-color: var(
-            --dark-text-muted
-        ) !important;
-        --mdc-list-list-item-trailing-icon-color: var(
-            --dark-text-muted
-        ) !important;
-        --mdc-list-list-item-hover-state-layer-color: var(
-            --dark-bg-hover
-        ) !important;
-        --mdc-list-list-item-focus-state-layer-color: var(
-            --dark-bg-hover
-        ) !important;
-        background-color: transparent !important;
-    }
-
-    .mat-mdc-list-item,
-    .mat-list-item,
-    .mdc-list-item {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-list-item__primary-text {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-list-item__secondary-text {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Select / Autocomplete
-    -------------------------------------------------------------------------- */
-    .mat-mdc-select-panel,
-    .mat-select-panel,
-    .mat-autocomplete-panel,
-    .mat-mdc-autocomplete-panel {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .mat-mdc-option,
-    .mat-option {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-option:hover:not(.mdc-list-item--disabled),
-    .mat-option:hover:not(.mat-option-disabled) {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .mat-mdc-optgroup-label,
-    .mat-optgroup-label {
-        color: var(--dark-text-muted) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Table
-    -------------------------------------------------------------------------- */
-    .mat-mdc-table,
-    .mat-table {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-header-cell,
-    .mat-header-cell {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-cell,
-    .mat-cell {
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .mat-mdc-row:hover,
-    .mat-row:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Paginator
-    -------------------------------------------------------------------------- */
-    .mat-mdc-paginator,
-    .mat-paginator {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-paginator-container {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Tabs
-    -------------------------------------------------------------------------- */
-    .mat-mdc-tab-group,
-    .mat-tab-group {
-        background-color: transparent !important;
-    }
-
-    .mat-mdc-tab,
-    .mat-tab-label {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .mat-mdc-tab.mdc-tab--active,
-    .mat-tab-label-active {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-tab-header {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Toolbar
-    -------------------------------------------------------------------------- */
-    .mat-toolbar,
-    .mat-mdc-toolbar {
-        background-color: var(--dark-bg-secondary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Sidenav / Drawer
-    -------------------------------------------------------------------------- */
-    .mat-drawer,
-    .mat-sidenav {
-        background-color: var(--dark-bg-secondary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-drawer-container,
-    .mat-sidenav-container {
-        background-color: var(--dark-bg-primary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Stepper
-    -------------------------------------------------------------------------- */
-    .mat-stepper-vertical,
-    .mat-stepper-horizontal {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .mat-step-header {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-step-label {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .mat-step-label-selected,
-    .mat-step-label-active {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Datepicker
-    -------------------------------------------------------------------------- */
-    .mat-datepicker-content {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-calendar {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .mat-calendar-body-cell-content {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-calendar-body-disabled > .mat-calendar-body-cell-content {
-        color: var(--dark-text-muted) !important;
-    }
-
-    .mat-calendar-table-header {
-        color: var(--dark-text-muted) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Snackbar
-    -------------------------------------------------------------------------- */
-    .mat-mdc-snack-bar-container {
-        --mdc-snackbar-container-color: var(--dark-bg-tertiary) !important;
-        --mdc-snackbar-supporting-text-color: var(
-            --dark-text-primary
-        ) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Bottom Sheet
-    -------------------------------------------------------------------------- */
-    .mat-bottom-sheet-container {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Tree
-    -------------------------------------------------------------------------- */
-    .mat-tree {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .mat-tree-node {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Form Field
-    -------------------------------------------------------------------------- */
-    .mat-mdc-form-field,
-    .mat-form-field {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-mdc-form-field-label,
-    .mat-form-field-label {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .mat-mdc-input-element,
-    .mat-input-element {
-        color: var(--dark-text-primary) !important;
-        caret-color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-        background-color: var(--dark-bg-input) !important;
-    }
-
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
-        .mdc-notched-outline__leading,
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
-        .mdc-notched-outline__notch,
-    .mdc-text-field--outlined:not(.mdc-text-field--disabled)
-        .mdc-notched-outline__trailing {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Button Toggle
-    -------------------------------------------------------------------------- */
-    .mat-button-toggle-appearance-standard {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mat-button-toggle-checked {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Chip
-    -------------------------------------------------------------------------- */
-    .mat-mdc-chip,
-    .mat-chip {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Progress Bar / Spinner
-    -------------------------------------------------------------------------- */
-    .mat-mdc-progress-bar,
-    .mat-progress-bar {
-        --mdc-linear-progress-track-color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Slide Toggle / Checkbox / Radio
-    -------------------------------------------------------------------------- */
-    .mat-mdc-slide-toggle,
-    .mat-slide-toggle {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-form-field {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    CDK Overlay
-    -------------------------------------------------------------------------- */
-    .cdk-overlay-pane {
-        /* Ensure overlays inherit dark colors */
-    }
-
-    .cdk-overlay-dark-backdrop {
-        background: rgba(0, 0, 0, 0.6) !important;
-    }
-
-    /* ==========================================================================
-    Book Review
-    ========================================================================== */
-    .unbound_review_text,
-    .unbound_reviews_text,
-    .unbound_reviews_source,
-    .unbound_reviews_reviewdby,
-    .unbound_author_biography,
-    .unbound_author_name {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .contributors-content-row .year,
-    app-contributor .year {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .unbound_review_by_text {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .showcase-container-inner,
-    .showcase-container-inner section {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    /* ==========================================================================
-    BOOTSTRAP POPOVERS (Book Preview Popup)
-    ========================================================================== */
-    .popover {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .popover-header {
-        background-color: var(--dark-bg-tertiary) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .popover-body {
-        color: var(--dark-text-primary) !important;
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    /* Popover arrows */
-    .bs-popover-top > .arrow:after,
-    .bs-popover-auto[x-placement^="top"] > .arrow:after {
-        border-top-color: var(--dark-bg-card) !important;
-    }
-
-    .bs-popover-bottom > .arrow:after,
-    .bs-popover-auto[x-placement^="bottom"] > .arrow:after {
-        border-bottom-color: var(--dark-bg-card) !important;
-    }
-
-    .bs-popover-left > .arrow:after,
-    .bs-popover-auto[x-placement^="left"] > .arrow:after {
-        border-left-color: var(--dark-bg-card) !important;
-    }
-
-    .bs-popover-right > .arrow:after,
-    .bs-popover-auto[x-placement^="right"] > .arrow:after {
-        border-right-color: var(--dark-bg-card) !important;
-    }
-
-    /* Arrow borders */
-    .bs-popover-top > .arrow:before,
-    .bs-popover-auto[x-placement^="top"] > .arrow:before {
-        border-top-color: var(--dark-border-color) !important;
-    }
-
-    .bs-popover-bottom > .arrow:before,
-    .bs-popover-auto[x-placement^="bottom"] > .arrow:before {
-        border-bottom-color: var(--dark-border-color) !important;
-    }
-
-    .bs-popover-left > .arrow:before,
-    .bs-popover-auto[x-placement^="left"] > .arrow:before {
-        border-left-color: var(--dark-border-color) !important;
-    }
-
-    .bs-popover-right > .arrow:before,
-    .bs-popover-auto[x-placement^="right"] > .arrow:before {
-        border-right-color: var(--dark-border-color) !important;
-    }
-
-    /* ==========================================================================
-    LIBRARY-SPECIFIC COMPONENTS (FRC / BiblioCommons)
-    ========================================================================== */
-    /* --------------------------------------------------------------------------
-    FRC (Fluid Responsive Components) - Showcase / Carousel
-    -------------------------------------------------------------------------- */
-    [class*="frc-"],
-    .frc-showcase-container,
-    .frc-carousel,
-    .frc-item,
-    .frc-slide {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Page Structure / Wrappers
-    -------------------------------------------------------------------------- */
-    [class*="page-wrapper"],
-    [class*="content-wrapper"],
-    [class*="main-wrapper"],
-    [class*="app-wrapper"],
-    [class*="site-wrapper"],
-    .wrapper,
-    #wrapper,
-    #app,
-    #root,
-    [class*="layout"] {
-        background-color: var(--dark-bg-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Edition / Format Tabs Section
-    -------------------------------------------------------------------------- */
-    [class*="edition-info"],
-    [class*="format-info"],
-    [class*="edition-section"],
-    [class*="format-section"],
-    [class*="tab-content"],
-    [class*="tab-pane"] {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* Tab headers / labels */
-    [class*="edition"] .nav-tabs,
-    [class*="format"] .nav-tabs,
-    [class*="edition"] [class*="tab"],
-    [class*="format"] [class*="tab"] {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* Active/selected tab */
-    [class*="edition"] .nav-link.active,
-    [class*="format"] .nav-link.active,
-    [class*="tab"].active,
-    [role="tab"][aria-selected="true"] {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) var(--dark-border-color)
-            var(--dark-bg-card) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Section Headers / Titles
-    -------------------------------------------------------------------------- */
-    [class*="section-header"],
-    [class*="section-title"],
-    [class*="panel-header"],
-    [class*="panel-title"],
-    [class*="block-header"],
-    [class*="block-title"] {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* "More in this Series" and similar sections */
-    [class*="series-section"],
-    [class*="related-section"],
-    [class*="similar-section"],
-    [class*="recommendation-section"] {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Quick Preview / Book Hover Popup
-    -------------------------------------------------------------------------- */
-    [class*="preview"],
-    [class*="quick-look"],
-    [class*="quick-view"],
-    [class*="hover-card"],
-    [class*="item-preview"],
-    [class*="book-preview"],
-    [class*="resource-preview"] {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* Book preview popup specific elements */
-    [class*="preview"] h1,
-    [class*="preview"] h2,
-    [class*="preview"] h3,
-    [class*="preview"] h4,
-    [class*="preview"] h5,
-    [class*="preview"] h6,
-    [class*="preview"] .title,
-    [class*="preview"] [class*="title"] {
-        color: var(--dark-text-primary) !important;
-    }
-
-    [class*="preview"] p,
-    [class*="preview"] span,
-    [class*="preview"] [class*="description"],
-    [class*="preview"] [class*="author"] {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* Check Availability and similar buttons in previews */
-    [class*="preview"] .btn,
-    [class*="preview"] button,
-    .popover .btn,
-    .popover button {
-        background-color: var(--dark-brand-flint) !important;
-        border-color: var(--dark-brand-flint) !important;
-        color: #ffffff !important;
-    }
-
-    [class*="preview"] .btn:hover,
-    [class*="preview"] button:hover,
-    .popover .btn:hover,
-    .popover button:hover {
-        background-color: var(--dark-brand-flint-hover) !important;
-        border-color: var(--dark-brand-flint-hover) !important;
-    }
-
-    /* Star ratings in previews */
-    [class*="rating"],
-    [class*="stars"] {
-        color: var(--dark-warning) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Catch-all for any remaining white backgrounds
-    -------------------------------------------------------------------------- */
-    [style*="background-color: white"],
-    [style*="background-color:#fff"],
-    [style*="background-color: #fff"],
-    [style*="background-color:#ffffff"],
-    [style*="background-color: #ffffff"],
-    [style*="background-color: rgb(255, 255, 255)"],
-    [style*="background: white"],
-    [style*="background:#fff"],
-    [style*="background: #fff"] {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    [style*="color: black"],
-    [style*="color:#000"],
-    [style*="color: #000"],
-    [style*="color:#212529"],
-    [style*="color: #212529"],
-    [style*="color: rgb(0, 0, 0)"],
-    [style*="color: rgb(33, 37, 41)"] {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Global wildcard for any remaining light elements (use sparingly)
-    -------------------------------------------------------------------------- */
-    *[class*="white"]:not([class*="text-white"]):not(.btn-outline-white) {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    /* Fix button text that should stay light on dark buttons */
-    .btn-flint,
-    .btn-primary,
-    .btn-success,
-    .btn-danger,
-    .btn-info,
-    .btn-warning {
-        color: #ffffff !important;
-    }
-
-    .btn-warning {
-        color: #1a1a2e !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Toast Notifications
-    -------------------------------------------------------------------------- */
-    .toast,
-    .toast-header,
-    .toast-body,
-    [class*="toast"] {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Custom Button Classes from Site CSS
-    -------------------------------------------------------------------------- */
-    .button-cancel {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Close / X Buttons
-    -------------------------------------------------------------------------- */
-    .close,
-    .btn-close,
-    [class*="close-"],
-    [aria-label="Close"] {
-        color: var(--dark-text-primary) !important;
-        opacity: 0.8 !important;
-    }
-
-    .close:hover,
-    .btn-close:hover {
-        color: var(--dark-text-primary) !important;
-        opacity: 1 !important;
-    }
-
-    /* ==========================================================================
-    LIBRARY-SPECIFIC COMPONENTS (From consolidated styles)
-    ========================================================================== */
-    /* --------------------------------------------------------------------------
-    FRC (Fluid Responsive Components) - Showcase / Carousel
-    -------------------------------------------------------------------------- */
-    .frc-showcase-container,
-    .frc-carousel,
-    .frc-item,
-    .frc-slide,
-    [class*="frc-"] {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Showcase List Items
-    -------------------------------------------------------------------------- */
-    .showcase-list,
-    .showcase-list-item {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .showcase-list-item .title {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .showcase-list-item.active {
-        border-color: var(--dark-link-color) !important;
-    }
-
-    .showcase-list-item.dragging-over {
-        background-color: rgba(109, 179, 242, 0.15) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Swiper / Slider Components
-    -------------------------------------------------------------------------- */
-    .swiper,
-    .swiper-wrapper,
-    .swiper-slide {
-        background-color: transparent !important;
-    }
-
-    .slider .swiper-button-prev,
-    .slider .swiper-button-next {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .slider .swiper-pagination {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .swiper-pagination-bullet {
-        background-color: var(--dark-text-muted) !important;
-    }
-
-    .swiper-pagination-bullet-active {
-        background-color: var(--dark-brand-flint) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Search Bar Components
-    -------------------------------------------------------------------------- */
-    .search-bar:not(app-search-bar),
-    .search-bar-container,
-    .search-bar--box,
-    [class*="search-bar"]:not(app-search-bar) {
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .search-bar--input,
-    .search-compact-input,
-    .search-bar__reversed-small .search-bar--input,
-    .search-bar--clear-btn,
-    .search-bar__reversed-small .search-bar--clear-btn {
-        background-color: var(--dark-bg-input) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .search-icon-container,
-    .type-ahead-container .search-icon-container {
-        background-color: var(--dark-bg-input) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .search-content,
-    .search-results,
-    .search-facets-container {
-        background-color: var(--dark-bg-primary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .search-dialog {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .facet {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .card[data-automation-id="search-card"],
-    .card[data-automation-id="search-card"] .row,
-    app-physical-item-availability section {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    span[data-automation-id="item-availability-message"] {
-        background: none !important;
-    }
-
-    app-facet-expansion-panel fieldset {
-        margin: 0;
-    }
-
-    .bubble,
-    .view-toggle {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    .view-toggle .active {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-bg-text) !important;
+    a[href="/"] {
+        color: var(--dm-text) !important;
     }
 
     .custom-dropdown__toggle {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-bg-text) !important;
+        color: var(--dm-text) !important;
     }
 
-    .custom-dropdown__toggle:hover,
-    .view-toggle button:hover {
-        background-color: var(--dark-bg-hover) !important;
+    .custom-dropdown__toggle:focus,
+    .custom-dropdown__toggle:hover {
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Type Ahead / Autocomplete Dropdown
-    -------------------------------------------------------------------------- */
-    .type-ahead-container .type-ahead-dropdown ul,
-    .type-ahead-container .type-ahead-dropdown .action-button,
+    .custom-dropdown__toggle__triangle {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .author,
+    .year {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== COMPACT SEARCH (portal nav) ========== */
+    .search-compact-input,
+    input.search-compact-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== SEARCH BAR ========== */
+    .search-bar--box {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .search-bar--input,
+    input.search-bar--input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .search-bar--input::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .search-bar--clear-btn {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
     .autocomplete-option {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
+        color: var(--dm-text-muted) !important;
     }
 
-    .autocomplete-option:hover {
-        background-color: var(--dark-bg-hover) !important;
+    .autocomplete-option.ng-star-inserted:hover {
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Facet Filters
-    -------------------------------------------------------------------------- */
-    .facet-filter,
-    .facet-modal,
-    .facet-header,
-    .facet-line,
-    .filter:hover,
-    .facet-checkbox,
-    .facet-label,
-    .facet-count,
-    [class*="facet-"] {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-        border-color: var(--dark-border-color) !important;
+    .search-bar .dropdown-menu .dropdown-item.active,
+    .search-bar .dropdown-menu .dropdown-item:active {
+        background-color: var(--dm-bg-elevated) !important;
     }
 
+    .icon-close:focus,
+    .icon-close:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .search-bar--select,
+    .search-dropdown-menu,
+    .search-dropdown-menu.dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* Keep the orange-red search button */
+    .search-bar--btn,
+    .search-dropdown-toggle {
+        background-color: var(--dm-accent-orange) !important;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    main,
+    .search-content {
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== SEARCH RESULTS CARDS ========== */
+    .card,
+    .card.py-4,
+    div.card {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .card:hover {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .card__title {
+        color: var(--dm-text) !important;
+    }
+
+    .card__publication-info {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== AVAILABILITY LABELS ========== */
+    .available,
+    span.available,
+    .label-available {
+        color: var(--dm-available) !important;
+    }
+
+    .unavailable,
+    span.unavailable,
+    .checked-out {
+        color: var(--dm-unavailable) !important;
+    }
+
+    /* ========== FILTER SIDEBAR ========== */
+    aside,
+    aside.col-sm-5,
+    aside.col-md-4 {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .facet-header:focus,
+    .facet-header:hover,
+    .filter:focus,
     .filter:hover {
-        background-color: var(--dark-bg-hover) !important;
+        background-color: var(--dm-bg-hover) !important;
     }
 
-    .facet-header__label {
-        color: var(--dark-text-primary) !important;
+    .facet-count {
+        color: var(--dm-text-muted) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    Cover / Book Covers
-    -------------------------------------------------------------------------- */
-    .cover-container,
-    .cover-wrapper,
-    .cover-details {
-        background-color: var(--dark-bg-tertiary) !important;
+    .facet-label,
+    .input-label {
+        color: var(--dm-text) !important;
     }
 
-    /* --------------------------------------------------------------------------
-    App Buttons
-    -------------------------------------------------------------------------- */
-    .app-button.button-cancel {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-primary) !important;
+    /* "More Formats" / "Less" toggle button */
+    .more-less-button,
+    button.more-less-button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
     }
 
-    .app-button.button-cancel:hover,
-    .app-button.button-cancel:active {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .app-button.button-outlined:hover,
-    .app-button.button-text:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .app-button.button-labelled {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .app-button.button-labelled:hover,
-    .app-button.button-labelled:focus {
-        background-color: var(--dark-bg-hover) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .more-less-button {
-        background-color: var(--dark-bg-hover) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    button.quick-view__link-user-name {
-        display: block;
-        height: auto;
-        padding: 0.5rem !important;
-        word-wrap: normal;
-        white-space: normal;
-    }
-
-    /* --------------------------------------------------------------------------
-    INS Buttons (Library custom buttons)
-    -------------------------------------------------------------------------- */
-    .ins-buttons.button-primary:focus,
-    .ins-buttons.button-primary.focused,
-    .ins-buttons.button-secondary:focus,
-    .ins-buttons.button-secondary.focused {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .ins-buttons.button-primary:active,
-    .ins-buttons.button-primary.pressed,
-    .ins-buttons.button-secondary:active,
-    .ins-buttons.button-secondary.pressed {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .ins-buttons.button-primary:hover,
-    .ins-buttons.button-secondary:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    .ins-buttons.button-primary:disabled,
-    .ins-buttons.button-secondary:disabled {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-muted) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Inspire / Bulk Hold Modals
-    -------------------------------------------------------------------------- */
-    .inspire-custom-modal .modal-content,
-    .bulk-hold-modal .modal-content {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Upload Image Container
-    -------------------------------------------------------------------------- */
-    .upload-image-container .dropdown,
-    .upload-image-container .dropdown .color-container,
-    .upload-image-container .overlay-container,
-    .upload-image-container .upload-image-button {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .upload-image-container .dropdown .color-container:hover {
-        background-color: var(--dark-bg-hover) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Bookshelf Components
-    -------------------------------------------------------------------------- */
-    .bookshelf,
-    .bookshelf-content,
-    .bookshelf-content-wrapper,
-    .bookshelf-work-area {
-        background-color: var(--dark-bg-primary) !important;
-    }
-
-    .bookshelf-title,
-    .bookshelf-title-name {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .bookshelf-nav-link,
-    .bookshelf-nav-link-content {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .bookshelf-nav-link:hover,
-    .bookshelf-nav-link.active {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .checkout-card-material-type,
-    .checkout-card-info-title,
-    .checkout-card-info-value {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Account Components
-    -------------------------------------------------------------------------- */
-    .account-card-cover-container,
-    .account-tab-content,
-    .account-tab-header {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .account-tab-label {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Breadcrumbs
-    -------------------------------------------------------------------------- */
-    .breadcrumb {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    .breadcrumb-item {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .breadcrumb-item.active {
-        color: var(--dark-text-muted) !important;
-    }
-
-    .breadcrumb-item + .breadcrumb-item::before {
-        color: var(--dark-text-muted) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Pagination
-    -------------------------------------------------------------------------- */
-    .page-link {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-link-color) !important;
-    }
-
-    .page-link:hover {
-        background-color: var(--dark-bg-hover) !important;
-        color: var(--dark-link-hover) !important;
-    }
-
-    .page-item.active .page-link {
-        background-color: var(--dark-brand-flint) !important;
-        border-color: var(--dark-brand-flint) !important;
-        color: #ffffff !important;
-    }
-
-    .page-item.disabled .page-link {
-        background-color: var(--dark-bg-tertiary) !important;
-        color: var(--dark-text-muted) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Switch / Toggle Buttons
-    -------------------------------------------------------------------------- */
-    .switch-button .slider {
-        background-color: var(--dark-bg-tertiary) !important;
-    }
-
-    .switch-button .slider::before {
-        background-color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Popover Header
-    -------------------------------------------------------------------------- */
-    .popover-header {
-        background-color: var(--dark-bg-tertiary) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .bs-popover-bottom .popover-header::before,
-    .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
-        border-bottom-color: var(--dark-bg-tertiary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Custom Select / Form Controls
-    -------------------------------------------------------------------------- */
-    .custom-select,
-    .custom-file-label,
-    .custom-control-label::before {
-        background-color: var(--dark-bg-input) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mark / Highlight
-    -------------------------------------------------------------------------- */
-    mark {
-        background-color: rgba(251, 191, 36, 0.3) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Generic Input Types
-    -------------------------------------------------------------------------- */
-    input[type="email"],
-    input[type="number"],
-    input[type="search"],
-    input[type="text"],
-    input[type="tel"],
-    input[type="url"],
-    input[type="password"],
-    textarea,
-    select {
-        background-color: var(--dark-bg-input) !important;
-        border-color: var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    input[type="email"]:focus,
-    input[type="number"]:focus,
-    input[type="search"]:focus,
-    input[type="text"]:focus,
-    input[type="tel"]:focus,
-    input[type="url"]:focus,
-    input[type="password"]:focus,
-    textarea:focus,
-    select:focus {
-        border-color: var(--dark-brand-flint) !important;
-        box-shadow: 0 0 0 0.2rem rgba(122, 158, 194, 0.25) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Nav Tabs Active State
-    -------------------------------------------------------------------------- */
-    .nav-tabs .nav-link.active,
-    .nav-tabs .nav-item.show .nav-link {
-        background-color: var(--dark-bg-card) !important;
-        border-color: var(--dark-border-color) var(--dark-border-color)
-            var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Carousel Indicators
-    -------------------------------------------------------------------------- */
-    .carousel-indicators li {
-        background-color: var(--dark-text-muted) !important;
-    }
-
-    .carousel-indicators .active {
-        background-color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Image Thumbnails
-    -------------------------------------------------------------------------- */
-    .img-thumbnail {
-        background-color: var(--dark-bg-tertiary) !important;
-        border-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    MDC Data Table
-    -------------------------------------------------------------------------- */
-    .mdc-data-table,
-    .mdc-data-table__header-cell {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-data-table__header-cell,
-    .mdc-data-table__pagination-total,
-    .mdc-data-table__pagination-rows-per-page-label,
-    .mdc-data-table__cell {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-data-table {
-        border-color: var(--dark-border-color) !important;
-    }
-
-    .mdc-data-table__pagination {
-        border-top-color: var(--dark-border-color) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    MDC List Items
-    -------------------------------------------------------------------------- */
-    .mdc-list-item__primary-text {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .mdc-list-item__secondary-text {
-        color: var(--dark-text-secondary) !important;
-    }
-
-    .mdc-list-item__overline-text,
-    .mdc-list-item__end {
-        color: var(--dark-text-muted) !important;
-    }
-
-    .mdc-deprecated-list-group__subheader {
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    MDC Menu Surface
-    -------------------------------------------------------------------------- */
-    .mdc-menu-surface {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    /* --------------------------------------------------------------------------
-    Mat Tab Header Pagination
-    -------------------------------------------------------------------------- */
-    .mat-mdc-tab-header-pagination-chevron {
-        border-color: var(--dark-text-primary) !important;
-    }
-
-    /* ==========================================================================
-    PRINT STYLES (disable dark mode for printing)
-    ========================================================================== */
-    @media print {
-        *,
-        *::before,
-        *::after {
-            background-color: white !important;
-            color: black !important;
-            box-shadow: none !important;
-            text-shadow: none !important;
-        }
-
-        a {
-            color: #000 !important;
-            text-decoration: underline !important;
-        }
-    }
-
-    /* whatever */
-    .dont-need-text,
-    .hold-card-info-title,
-    .hold-card-info-value,
-    .keep-reading-history {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .profile-expiration-message-body,
-    .page-title-button {
-        background-color: var(--dark-bg-card) !important;
-        color: var(--dark-text-primary) !important;
-    }
-
-    .profile-expiration-message {
-        border-color: var(--dark-text-primary) !important;
-    }
-
-    .bookshelf-item-title {
-        color: var(--dark-text-primary) !important;
-    }
-
-    .search-bar--btn {
-        box-shadow: none !important;
-    }
-
-    .all-links-button-icon,
-    .all-links-button-text {
-        color: var(--dark-link-color) !important;
-    }
-
-    .all-links-button:hover {
-        background-color: var(--dark-bg-hover) !important;
-        box-shadow: inset 0 0 0 1px #535862;
-    }
-
-    aside.content {
-        background-color: var(--dark-bg-primary) !important;
-    }
-
-    aside.content a.custom-link:hover {
-        background-color: var(--dark-bg-card) !important;
-    }
-
-    .bookshelf {
-        border-top: 1px solid var(--dark-border-color) !important;
+    .more-less-button:hover {
+        background-color: var(--dm-bg-hover) !important;
     }
 
     .expand-button {
-        background-color: var(--dark-bg-card) !important;
-        border: 1px solid var(--dark-border-color) !important;
-        color: var(--dark-text-primary) !important;
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
     }
 
-    .facet-header:hover {
-        background-color: var(--dark-bg-hover) !important;
-        border-radius: 0 !important;
+    /* ========== VIEW TOGGLE ========== */
+    .view-toggle {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    button.mr-1,
+    button.mr-1.active {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== TABS ========== */
+    .tab-label,
+    a.tab-label,
+    a.tab-label.nav-link {
+        color: var(--dm-text) !important;
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    a.tab-label.nav-link.active,
+    a.tab-label.nav-link[aria-selected="true"] {
+        color: var(--dm-accent-teal) !important;
+        background-color: var(--dm-bg) !important;
+        border-top-color: var(--dm-accent-teal) !important;
+    }
+
+    .rollup-tabs-content {
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .rollup-tabs-content-card-header {
+        background-color: var(--dm-bg);
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== FORMS ========== */
+    input,
+    select,
+    textarea,
+    .form-control {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--dm-text-muted) !important;
+    }
+
+    input[type="checkbox"] + div,
+    input[type="checkbox"] + span {
+        color: var(--dm-text) !important;
+    }
+
+    .option-button-label {
+        color: var(--dm-text) !important;
+    }
+
+    /* ========== DROPDOWN MENUS ========== */
+    .dropdown-menu {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .dropdown-menu a,
+    .dropdown-menu button {
+        color: var(--dm-text) !important;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BUTTONS ========== */
+    .ins-buttons {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ins-buttons.no-border {
+        background-color: var(--dm-bg-surface) !important;
+        color: #ffffff !important;
+    }
+
+    a.ins-buttons.button-primary {
+        background-color: var(--dm-accent-teal) !important;
+        border-color: var(--dm-accent-teal) !important;
+        color: #1a1a1a !important;
+    }
+
+    .carousel-btn {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    a.resource-more {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .resources-more-text {
+        color: var(--dm-link) !important;
+    }
+
+    /* ========== PAGINATOR ========== */
+    .paginator,
+    nav.paginator {
+        background-color: var(--dm-bg) !important;
+    }
+
+    .paginator button,
+    .paginator a {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .paginator button:hover,
+    .paginator a:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BOOK DETAIL PAGE ========== */
+    .unbound_format {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .unbound_copyright {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .unbound_reviews_source {
+        color: var(--dm-text) !important;
+    }
+
+    .unbound_cover_area {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .unbound_lightbox {
+        color: var(--dm-link) !important;
+    }
+
+    .unbound_lookinside_toc_label {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* Reading level badges */
+    .unbound_readinglevel_title {
+        color: #ffffff !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_lexile {
+        color: var(--dm-accent-purple) !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_booklevel {
+        color: var(--dm-available) !important;
+    }
+
+    div.unbound_readinglevel_card.unbound_readinglevel_age {
+        color: var(--dm-link) !important;
+    }
+
+    .unbound_readinglevel_links,
+    .unbound_readinglevel_link {
+        color: inherit !important;
+    }
+
+    .unbound_similar_display_subtype {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .unbound_seriesrec_viewbtn {
+        background-color: var(--dm-bg-elevated) !important;
+        color: #ffffff !important;
+    }
+
+    .editions-search-container,
+    .search-input {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .app-button,
+    button.dropdown-toggle.app-button {
+        color: var(--dm-text) !important;
+    }
+
+    .app-button:hover,
+    .app-button:focus,
+    button.dropdown-toggle.app-button:hover,
+    button.dropdown-toggle.app-button:focus {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== PORTAL (ACCOUNT) PAGE - Material UI Components ========== */
+
+    /* Sidebar nav panel — the box containing all nav buttons */
+    account-portal-custom-element
+        .MuiBox-root:has(> .MuiBox-root[role="button"]) {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* Active nav item (highlighted in light mode with gray bg) */
+    account-portal-custom-element .MuiBox-root.css-121zllt {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* All portal nav item text */
+    account-portal-custom-element .MuiBox-root[role="button"] {
+        color: var(--dm-text) !important;
+    }
+
+    /* Count badges (64, 0, 1, etc.) inside nav items */
+    account-portal-custom-element .MuiTypography-root > .MuiBox-root {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* All MUI Typography text in portal */
+    account-portal-custom-element .MuiTypography-root {
+        color: var(--dm-text) !important;
+    }
+
+    /* Account Page */
+    button[aria-label="Edit Account Information"] {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    button[aria-label="Edit Account Information"]:hover,
+    button[aria-label="Edit Account Information"]:focus {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .css-6s9b9v {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    .MuiBox-root.css-1e02a9a {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* Sort by */
+    .MuiMenu-list.css-r8u8y9 {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* Checkout / hold / history item row cards */
+    account-portal-custom-element .MuiBox-root.css-mmiom1,
+    account-portal-custom-element .MuiBox-root.css-1j0iju0,
+    account-portal-custom-element .MuiBox-root.css-ni3txr {
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Select native inputs and search field in portal */
+    account-portal-custom-element .MuiSelect-nativeInput,
+    account-portal-custom-element input.page-builder-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Select displayed value text */
+    account-portal-custom-element .MuiSelect-select {
+        color: var(--dm-text) !important;
+    }
+
+    /* MUI OutlinedInput border (fieldset outline) */
+    account-portal-custom-element .MuiOutlinedInput-notchedOutline {
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI Tab labels */
+    account-portal-custom-element .MuiTab-root {
+        color: var(--dm-text-muted) !important;
+    }
+
+    account-portal-custom-element .MuiTab-root.Mui-selected {
+        color: var(--dm-text) !important;
+    }
+
+    /* MUI Select dropdown arrow */
+    account-portal-custom-element .MuiSelect-icon {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* MUI SVG icons in portal (non-button) */
+    account-portal-custom-element .MuiSvgIcon-root {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* Action buttons: text variant (Select All, Place Holds, Delete, etc.) */
+    account-portal-custom-element .MuiButton-text {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* Action buttons: outlined variant (filter toggles, etc.) */
+    account-portal-custom-element .MuiButton-outlined {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* MUI text input (search box inside portal content) */
+    account-portal-custom-element .MuiInputBase-input {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+    }
+
+    /* "All / Available" filter toggle group */
+    account-portal-custom-element .MuiBox-root.css-1l9itm5 {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
+    /* Bookmark / booklist item row cards */
+    account-portal-custom-element .css-mpryks {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* Bookmark View */
+    .css-gbimce {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
+    /* ========== FOOTER ========== */
+    footer,
+    footer.ng-star-inserted {
+        background-color: var(--dm-bg-surface) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    footer a {
+        color: var(--dm-link) !important;
+    }
+
+    /* ========== HOMEPAGE CAROUSEL ========== */
+    .preview {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text-muted) !important;
+    }
+
+    .not-found-words {
+        color: var(--dm-text-muted) !important;
+    }
+
+    /* ========== USER PANEL (logged in) ========== */
+    .user-tools {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__btn-close {
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__icon-user {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__link-user-name {
+        color: var(--dm-accent-teal) !important;
+        white-space: normal !important;
+    }
+
+    .quick-view__stats-number {
+        color: var(--dm-accent-teal) !important;
+    }
+
+    .quick-view__stats-entity {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__info-section {
+        border-color: var(--dm-border) !important;
+    }
+
+    .quick-view__info-title {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .quick-view__info-value {
+        color: var(--dm-text) !important;
+    }
+
+    .quick-view__button,
+    button.quick-view__button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    button.quick-view__button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    /* ========== BOOKMARK & SAVED SEARCHES SIDEBARS ========== */
+    .ap-bookmark-sidebar,
+    .ap-bookmark-sidebar--list,
+    app-ap-bookmark,
+    app-ap-saved-search,
+    app-ap-saved-search-sidebar,
+    .ap-saves-search-sidebar {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark-sidebar-header,
+    .ap-saves-search-sidebar-header,
+    .ap-saves-search-sidebar-header-title {
+        color: var(--dm-text) !important;
+    }
+
+    .ap-bookmark-sidebar-navigation,
+    .ap-saves-search-sidebar-navigation {
+        color: var(--dm-link) !important;
+    }
+
+    .ap-bookshelf-card {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark__header__button {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark__header__button:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .ap-bookmark__header__button.button-disabled {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark__header__button__place_holds {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark-title__text {
+        color: var(--dm-text) !important;
+    }
+
+    .ap-bookmark-sidebar .actions-section {
+        background-color: var(--dm-bg) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    .ap-bookmark-sidebar .actions-section button[disabled] {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text-muted) !important;
+        border-color: var(--dm-border) !important;
+    }
+
+    /* ========== PENDO / THIRD PARTY ========== */
+    ._pendo-badge {
+        background-color: var(--dm-bg-elevated) !important;
+        opacity: 0.7;
+    }
+
+    /* OneTrust cookie banner */
+    .onetrust-pc-dark-filter {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    #onetrust-consent-sdk .onetrust-pc-dark-filter ~ div,
+    #onetrust-consent-sdk [class*="onetrust"] {
+        background-color: var(--dm-bg-surface) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .MuiButtonBase-root {
+        color: var(--dm-link) !important;
+    }
+
+    /* ========== COSMETIC ========== */
+    ::selection {
+        background-color: var(--dm-accent-teal);
+        color: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: var(--dm-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--dm-border);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dm-bg-hover);
+    }
+
+    img {
+        opacity: 0.9;
+    }
+
+    img:hover {
+        opacity: 1;
+    }
+
+    a[href*="searchType=everything"] {
+        color: var(--dm-text-muted) !important;
+    }
+
+    button[class*="tour"] {
+        background-color: var(--dm-accent-orange) !important;
+        color: #ffffff !important;
+    }
+
+    /* ========== MISC OVERRIDES ========== */
+    .gradient.ng-star-inserted {
+        background-color: var(--dm-bg) !important;
+        background-image: none !important;
+    }
+
+    .call-number-item-location[_ngcontent-see-c333] {
+        color: var(--dm-link);
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333] {
+        color: #4a4b4c;
+        background-color: var(--dm-bg) !important;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        .multimedia-link[_ngcontent-see-c333] {
+        color: #00778a;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        .available[_ngcontent-see-c333] {
+        color: #0c7e11;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        .checked-out[_ngcontent-see-c333] {
+        color: #c21414;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        .unavailable[_ngcontent-see-c333] {
+        color: #b3b6ba;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        a[_ngcontent-see-c333] {
+        color: #097c7c;
+    }
+    .rollup-tabs-content-card-header[_ngcontent-see-c333]
+        a.app-button[_ngcontent-see-c333] {
+        color: var(--dm-bg) !important;
+    }
+    .rollup-tabs-content-card-header-container[_ngcontent-see-c333] {
+        border: 1px solid var(--dm-border) !important;
+    }
+    .location-edition-table-container[_ngcontent-see-c333] {
+        background-color: var(--dm-bg) !important;
+        border-top: 1px solid var(--dm-border) !important;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .edition-info-text[_ngcontent-see-c333] {
+        color: #00778a;
+        color: #33475b;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-arrow-btn[_ngcontent-see-c333] {
+        color: #00778a;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-arrow-btn[_ngcontent-see-c333]:focus {
+        outline: 2px solid #024376;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-arrow-btn[_ngcontent-see-c333]:hover {
+        background-color: var(--dm-bg) !important;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-arrow-btn[_ngcontent-see-c333]
+        .arrow-icon[_ngcontent-see-c333] {
+        color: #33475b;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-table-btn[_ngcontent-see-c333] {
+        color: #00778a;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-table-btn[_ngcontent-see-c333]:focus {
+        outline: 5px auto #024376;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-table-btn.enhanced-edition-details-btn[_ngcontent-see-c333] {
+        background-color: var(--dm-bg) !important;
+        border-top: 2px solid #40c0c0;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .toggle-table-btn.enhanced-edition-details-btn[_ngcontent-see-c333]:hover {
+        background-color: #b1f6f6;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .editions-search-container[_ngcontent-see-c333] {
+        color: #000000de;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .editions-search-container[_ngcontent-see-c333]
+        .search-icon[_ngcontent-see-c333] {
+        color: #33475b;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .editions-search-container[_ngcontent-see-c333]
+        .search-input[_ngcontent-see-c333] {
+        border: 1px solid var(--dm-border) !important;
+        background-color: var(--dm-bg) !important;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .editions-search-container[_ngcontent-see-c333]
+        .search-input[_ngcontent-see-c333]:focus {
+        outline: 2px solid #024376;
+        border-color: #024376;
+    }
+    .location-edition-table-container[_ngcontent-see-c333]
+        .editions-search-container[_ngcontent-see-c333]
+        .search-input[_ngcontent-see-c333]::placeholder {
+        color: #33475b;
+    }
+    .frc-showcase-container {
+        border: solid 1px var(--dm-border) !important;
+        background-color: var(--dm-bg) !important;
+    }
+    .unbound-container .unbound-title {
+        color: #33475b;
+    }
+    .unbound-container .icon-related-resources {
+        background-color: #e45d3f;
+        color: #fff;
+    }
+    .unbound-container .books-icon {
+        background: #e45d3f;
+        color: #fff;
+    }
+    .unbound-container
+        #unbound_hover
+        .unbound_hover_basic
+        .unbound_hover_title {
+        color: #425b76;
+    }
+    .unbound-container
+        #unbound_hover
+        .unbound_hover_basic
+        .unbound_hover_link_button {
+        background: #425b76;
+    }
+    .unbound-container
+        #unbound_hover
+        .unbound_hover_basic
+        .unbound_hover_link_button:hover {
+        color: #fff;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_content
+        .unbound_cover:not(.unbound_cover_seriesrec) {
+        box-shadow: 0 2px 4px #0006;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_lb_launch
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_lb_launch
+        a.unbound_lightbox:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_lb_launch
+        a.unbound_lightbox:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_cover_highlighted
+        + .unbound_format {
+        background-color: #425b76;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_cover_highlighted
+        .unbound_cover {
+        border: 5px solid #425b76 !important;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_footer
+        a.unbound_seemore_link,
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_footer
+        a.unbound_seemore_link:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_series
+        .unbound_footer
+        a.unbound_seemore_link:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        #unbound_reviewlist
+        .unbound_review
+        .unbound_review_text {
+        color: #33475b;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        #unbound_reviewlist
+        .unbound_review
+        .unbound_review_by
+        .unbound_review_by_text {
+        color: #727272;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        #unbound_reviewlist
+        .unbound_review
+        .unbound_review_by
+        .unbound_reviewed_at {
+        color: #727272;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_footer
+        a.unbound_seemore_link,
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_footer
+        a.unbound_seemore_link:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_footer
+        a.unbound_seemore_link:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_reviews_writelink
+        a,
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_reviews_writelink
+        a:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_patronreviews
+        .unbound_reviews_writelink
+        a:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_reviews
+        .unbound_reviews_source {
+        color: #252525;
+    }
+    .unbound-container .unbound_splitdiv.unbound_reviews .unbound_reviews_date {
+        color: #727272;
+    }
+    .unbound-container .unbound_splitdiv.unbound_reviews .unbound_reviews_text {
+        color: #33475b;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_reviews
+        .unbound_footer
+        .unbound_lb_launch
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_reviews
+        .unbound_footer
+        .unbound_lb_launch
+        a.unbound_lightbox:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_reviews
+        .unbound_footer
+        .unbound_lb_launch
+        a.unbound_lightbox:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_similar
+        .unbound_cover_area_type_seriesrec
+        .unbound_seriesrec_viewbtn {
+        background: #425b76;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_similar
+        .unbound_cover_area_type_seriesrec
+        .unbound_seriesrec_viewbtn:hover {
+        color: var(--dm-bg) !important;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_similar
+        .unbound_footer
+        a.unbound_seemore_link,
+    .unbound-container
+        .unbound_splitdiv.unbound_similar
+        .unbound_footer
+        a.unbound_seemore_link:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_similar
+        .unbound_footer
+        a.unbound_seemore_link:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        .unbound_profile_section_title {
+        color: #727272;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        .unbound_profile_tag_title {
+        color: #33475b;
+    }
+    .unbound-container .unbound_splitdiv.unbound_bookprofile a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        a.unbound_lightbox:visited,
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        .unbound_footer
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        .unbound_footer
+        a.unbound_lightbox:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        a.unbound_lightbox:hover,
+    .unbound-container
+        .unbound_splitdiv.unbound_bookprofile
+        .unbound_footer
+        a.unbound_lightbox:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        .unbound_footer
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        .unbound_footer
+        a.unbound_lightbox:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        .unbound_footer
+        a.unbound_lightbox:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        a.unbound_lightbox:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        a.unbound_lightbox:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container .unbound_splitdiv.unbound_readinglevel a.unbound_help,
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        a.unbound_help:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_readinglevel
+        a.unbound_help:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container .unbound_splitdiv.unbound_awards .unbound_award_text a {
+        color: #00778a;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_books
+        .unbound_awards_link,
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_books
+        .unbound_awards_link:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_books
+        .unbound_awards_link:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_footer
+        a.unbound_seemore_link,
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_footer
+        a.unbound_seemore_link:visited {
+        color: #00778a;
+        background: transparent;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_awards
+        .unbound_footer
+        a.unbound_seemore_link:hover {
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container .unbound_splitdiv.unbound_author .unbound_author_name {
+        color: #33475b;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_author
+        .unbound_author_biography {
+        color: #33475b;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_author
+        .unbound_footer
+        a.unbound_lightbox,
+    .unbound-container
+        .unbound_splitdiv.unbound_author
+        .unbound_footer
+        a.unbound_lightbox:visited {
+        color: #00778a;
+    }
+    .unbound-container
+        .unbound_splitdiv.unbound_author
+        .unbound_footer
+        a.unbound_lightbox:hover {
+        text-decoration: underline !important;
+        color: #00778a !important;
+        background: inherit;
+    }
+    .unbound-container .unbound-author-see-more {
+        color: #00778a;
+    }
+    .unbound-container .unbound-author-see-more:hover {
+        color: #00778a !important;
+    }
+    .unbound-container .unbound_splitdiv .unbound_truncate_sumore,
+    .unbound-container .unbound_splitdiv .unbound_truncate_sumore:visited,
+    .unbound-container .unbound_splitdiv .unbound_truncate_suless,
+    .unbound-container .unbound_splitdiv .unbound_truncate_suless:visited {
+        color: #00778a;
+    }
+    .unbound-container .unbound_splitdiv .unbound_truncate_sumore:hover,
+    .unbound-container .unbound_splitdiv .unbound_truncate_suless:hover {
+        text-decoration: underline !important;
+        color: #00778a !important;
+        background: inherit;
     }
 }
