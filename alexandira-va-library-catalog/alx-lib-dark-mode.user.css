@@ -543,6 +543,19 @@
         color: var(--dm-text-muted) !important;
     }
 
+    .autocomplete-option {
+        color: var(--dm-text-muted) !important;
+    }
+
+    .autocomplete-option.ng-star-inserted:hover {
+        background-color: var(--dm-bg-hover) !important;
+    }
+
+    .search-bar .dropdown-menu .dropdown-item.active,
+    .search-bar .dropdown-menu .dropdown-item:active {
+        background-color: var(--dm-bg-elevated) !important;
+    }
+
     .icon-close:focus,
     .icon-close:hover {
         background-color: var(--dm-bg-hover) !important;
