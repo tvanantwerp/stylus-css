@@ -491,6 +491,13 @@
         background-color: var(--dm-bg-hover) !important;
     }
 
+    button,
+    .bubble {
+        background-color: var(--dm-bg-elevated) !important;
+        color: var(--dm-text) !important;
+        border-color: var(--dm-border) !important;
+    }
+
     .icon-library-help,
     .icon-library-info,
     .user-icon {
