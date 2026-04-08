@@ -764,9 +764,22 @@
     }
 
     a.ins-buttons.button-primary {
+        background-color: var(--dm-bg-elevated) !important;
+        border-color: var(--dm-accent-teal) !important;
+        color: var(--dm-text) !important;
+    }
+
+    a.ins-buttons.button-primary:hover {
+        background-color: var(--dm-accent-purple) !important;
+        border-color: var(--dm-accent-purple) !important;
+        color: var(--dm-bg) !important;
+    }
+
+    a.ins-buttons.button-primary.current,
+    a.ins-buttons.button-primary.current:hover {
         background-color: var(--dm-accent-teal) !important;
         border-color: var(--dm-accent-teal) !important;
-        color: #1a1a1a !important;
+        color: var(--dm-bg) !important;
     }
 
     .carousel-btn {
