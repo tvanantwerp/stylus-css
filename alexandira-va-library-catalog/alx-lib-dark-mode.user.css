@@ -906,8 +906,13 @@
     }
 
     .pickup-location__label,
-    .dont-need-text {
+    .dont-need-text,
+    .login-form-label {
         color: var(--dm-text) !important;
+    }
+
+    .login-title {
+        color: var(--dm-accent-teal) !important;
     }
 
     /* ========== PORTAL (ACCOUNT) PAGE - Material UI Components ========== */
