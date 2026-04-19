@@ -3,7 +3,7 @@
 @description    Adds a dark mode for the Alexandria, VA library's catalog website
 @namespace      github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @author         Tom VanAntwerp
-@version        1.2.1
+@version        1.2.2
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alexandira-va-library-catalog
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
@@ -449,6 +449,15 @@
 
     a.location-link {
         color: var(--dm-accent-teal) !important;
+    }
+
+    table {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .table-hover tbody tr:hover {
+        color: var(--dm-text) !important;
     }
 
     /* ========== HEADER ========== */
@@ -905,9 +914,20 @@
         background-color: var(--dm-bg) !important;
     }
 
+    perfect-scrollbar {
+        background-color: var(--dm-bg-surface) !important;
+    }
+
     .pickup-location__label,
     .dont-need-text,
-    .login-form-label {
+    .login-form-label,
+    .ps,
+    thead.thead-light {
+        color: var(--dm-text) !important;
+    }
+
+    thead.thead-light th {
+        background-color: var(--dm-bg-elevated) !important;
         color: var(--dm-text) !important;
     }
 
