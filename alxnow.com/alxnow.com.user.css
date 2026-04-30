@@ -3,7 +3,7 @@
 @description    Dark mode for alxnow.com, the local news site for Alexandria, VA
 @namespace      github.com/tvanantwerp/stylus-css/tree/main/alxnow.com
 @author         Tom VanAntwerp
-@version        1.0.0
+@version        1.1.0
 @homepageURL    https://github.com/tvanantwerp/stylus-css/tree/main/alxnow.com
 @supportURL     https://github.com/tvanantwerp/stylus-css/issues
 @license        CC-BY-NC-SA-4.0
@@ -243,6 +243,10 @@
         color: #ffffff !important;
     }
 
+    .show-comments {
+        background-color: rgb(var(--cta-background-color)) !important;
+    }
+
     /* ========== COPYRIGHT BAR ========== */
     .bg-copyright-background {
         background-color: rgb(var(--copyright-background-color)) !important;
@@ -316,5 +320,61 @@
 
     ::-webkit-scrollbar-thumb:hover {
         background-color: var(--dm-bg-hover);
+    }
+}
+
+@-moz-document domain("lovable.app") {
+    /* ========== NEWSLETTER CTA ========== */
+    body,
+    .bg-card,
+    h1,
+    p,
+    input,
+    div {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+}
+
+@-moz-document domain("disqus.com") {
+    /* ========== COMMENTS ========== */
+    #comment-policy,
+    input,
+    .tooltip {
+        background-color: var(--dm-bg) !important;
+        color: var(--dm-text) !important;
+    }
+
+    .comment-count,
+    .username,
+    .post-message,
+    [class^="_editor-expanded"],
+    .time-ago,
+    .has-edit,
+    .control,
+    .count,
+    .parent-link,
+    .text,
+    .icon-share,
+    .favorite-icon,
+    .sort-menu-refresh__item,
+    .collapse > a,
+    .expand > a,
+    .realtime-button,
+    .comment-policy-refresh__heading,
+    .comment-policy-refresh__text {
+        color: var(--dm-text) !important;
+    }
+
+    .control {
+        background-color: var(--dm-text) !important;
+    }
+
+    [class^="_container_"] {
+        background-color: var(--dm-bg) !important;
+    }
+
+    [class^="_submit-text_"] {
+        color: var(--dm-bg) !important;
     }
 }
